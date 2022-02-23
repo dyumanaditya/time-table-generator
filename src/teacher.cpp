@@ -33,7 +33,7 @@ void Teacher::add_course(Courses course)
     courses.push_back(course);
 }
 
-void Teachers::add_section(Sections section)
+void Teacher::add_section(Sections section)
 {
     sections.push_back(section);
 }
