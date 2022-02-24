@@ -18,27 +18,71 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="welcome_page">
+       <property name="styleSheet">
+        <string notr="true">background: #fff;</string>
+       </property>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
          <layout class="QGridLayout" name="wecome_layout">
-          <item row="0" column="0">
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
+          <item row="0" column="1">
+           <widget class="QPushButton" name="input_data_button">
+            <property name="minimumSize">
              <size>
-              <width>40</width>
-              <height>20</height>
+              <width>50</width>
+              <height>50</height>
              </size>
             </property>
-           </spacer>
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: black;
+background: white;
+border-radius: 10px;
+padding: 10px;
+border: 2px solid #333;</string>
+            </property>
+            <property name="text">
+             <string>Input Data</string>
+            </property>
+           </widget>
           </item>
-          <item row="0" column="2">
-           <spacer name="horizontalSpacer">
+          <item row="0" column="3">
+           <widget class="QPushButton" name="upload_data_button">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: black;
+background: white;
+border-radius: 10px;
+padding: 10px;
+border: 2px solid #333;</string>
+            </property>
+            <property name="text">
+             <string>Upload Data</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer_2">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -63,59 +107,18 @@
             </property>
            </spacer>
           </item>
-          <item row="0" column="3">
-           <widget class="QPushButton" name="upload_data_button">
-            <property name="minimumSize">
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
              <size>
-              <width>50</width>
-              <height>50</height>
+              <width>40</width>
+              <height>20</height>
              </size>
             </property>
-            <property name="font">
-             <font>
-              <family>Product Sans</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: black;
-background: white;
-border-radius: 10px;
-padding: 10px;
-border: 2px dashed #333;</string>
-            </property>
-            <property name="text">
-             <string>Upload Data</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QPushButton" name="input_data_button">
-            <property name="minimumSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Product Sans</family>
-              <pointsize>10</pointsize>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: black;
-background: white;
-border-radius: 10px;
-padding: 10px;
-border: 2px dashed #333;</string>
-            </property>
-            <property name="text">
-             <string>Input Data</string>
-            </property>
-           </widget>
+           </spacer>
           </item>
          </layout>
         </item>
@@ -144,6 +147,12 @@ border: 2px dashed #333;</string>
           </item>
           <item row="4" column="4">
            <widget class="QLabel" name="upload_student_label">
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Upload Student data (csv file)</string>
             </property>
@@ -178,6 +187,12 @@ border: 2px dashed #333;</string>
           </item>
           <item row="1" column="4">
            <widget class="QLabel" name="upload_teacher_label">
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Upload Teacher data (csv file)</string>
             </property>
