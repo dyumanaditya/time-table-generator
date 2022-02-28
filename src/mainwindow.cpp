@@ -49,7 +49,9 @@ void MainWindow::on_generate_tt_button_clicked()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+
+
+void MainWindow::on_back_button_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }

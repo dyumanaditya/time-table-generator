@@ -26,7 +26,7 @@ private slots:
 
     void on_generate_tt_button_clicked();
 
-    void on_pushButton_clicked();
+    void on_back_button_clicked();
 
 private:
     Ui::MainWindow *ui;

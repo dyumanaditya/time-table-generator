@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="welcome_page">
        <property name="styleSheet">
@@ -124,8 +124,31 @@ border: 2px solid #333;</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="input_data_page"/>
+      <widget class="QWidget" name="input_data_page">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="input_data_layout"/>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="upload_data_page">
+       <property name="styleSheet">
+        <string notr="true">QWidget {
+	background: #fff;
+}
+
+QLabel {
+	color: #555;
+}
+
+QPushButton {
+	color: #000;
+	background: #fff;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 1px solid #333;
+}</string>
+       </property>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
          <layout class="QGridLayout" name="upload_data_layout">
@@ -196,7 +219,13 @@ border: 1px solid #333;</string>
            </widget>
           </item>
           <item row="7" column="5">
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="back_button">
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Back</string>
             </property>
@@ -250,6 +279,12 @@ border: 1px solid #333;</string>
           </item>
           <item row="7" column="7">
            <widget class="QPushButton" name="generate_tt_button">
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>Generate TT</string>
             </property>
@@ -305,7 +340,13 @@ border-radius: 5px;</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2"/>
+      <widget class="QWidget" name="generate_tt_page">
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="generate_tt_layout"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
