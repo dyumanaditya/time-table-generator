@@ -45,7 +45,8 @@ void MainWindow::on_student_data_browse_button_clicked()
 
 void MainWindow::on_generate_tt_button_clicked()
 {
-
+    // the Time Table has to be generated before going to this page.
+    ui->stackedWidget->setCurrentIndex(3);
 }
 
 
@@ -54,5 +55,17 @@ void MainWindow::on_generate_tt_button_clicked()
 void MainWindow::on_back_button_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_back_to_upload_page_button_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_search_tt_button_clicked()
+{
+    // Search and find specific Time Table.
 }
 

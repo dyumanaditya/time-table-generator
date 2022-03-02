@@ -18,11 +18,26 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="welcome_page">
        <property name="styleSheet">
-        <string notr="true">background: #fff;</string>
+        <string notr="true">QWidget {
+	background: #fff;
+}
+
+QPushButton {
+	color: black;
+	background: white;
+	border-radius: 5px;
+	padding: 10px;
+	border: 2px solid #333;
+}
+
+QPushButton:pressed {
+	background: #888;
+	color: #fff;
+}</string>
        </property>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
@@ -38,17 +53,13 @@
             <property name="font">
              <font>
               <family>Product Sans</family>
-              <pointsize>10</pointsize>
+              <pointsize>11</pointsize>
               <weight>50</weight>
               <bold>false</bold>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: black;
-background: white;
-border-radius: 10px;
-padding: 10px;
-border: 2px solid #333;</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Input Data</string>
@@ -66,15 +77,11 @@ border: 2px solid #333;</string>
             <property name="font">
              <font>
               <family>Product Sans</family>
-              <pointsize>10</pointsize>
+              <pointsize>11</pointsize>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: black;
-background: white;
-border-radius: 10px;
-padding: 10px;
-border: 2px solid #333;</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Upload Data</string>
@@ -147,6 +154,11 @@ QPushButton {
 	padding: 5px 10px;
 	border-radius: 5px;
 	border: 1px solid #333;
+}
+
+QPushButton:pressed {
+	background: #888;
+	color: #fff;
 }</string>
        </property>
        <layout class="QGridLayout" name="gridLayout_4">
@@ -340,10 +352,293 @@ border-radius: 5px;</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="generate_tt_page">
+      <widget class="QWidget" name="search_tt_page">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	color: #000;
+	background: #fff;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 1px solid #333;
+}
+
+QPushButton:pressed {
+	background: #888;
+	color: #fff;
+}
+
+QWidget {
+	background: #fff;
+}</string>
+       </property>
        <layout class="QGridLayout" name="gridLayout_7">
         <item row="0" column="0">
-         <layout class="QGridLayout" name="generate_tt_layout"/>
+         <layout class="QGridLayout" name="search_tt_layout">
+          <item row="3" column="3">
+           <widget class="QLineEdit" name="teacher_name_input">
+            <property name="font">
+             <font>
+              <family>Roboto Mono</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">padding: 5px 10px;
+color: #000;
+background: #fff;
+border: 1px solid #888;
+border-radius: 5px;</string>
+            </property>
+            <property name="text">
+             <string>TeacherName</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="0">
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>80</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="role_label">
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">padding: 5px 10px;
+color: #000;
+background: #fff;</string>
+            </property>
+            <property name="text">
+             <string>Role</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="7">
+           <widget class="QPushButton" name="search_tt_button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>90</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>Search TT</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="5" column="6">
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="1">
+           <widget class="QComboBox" name="select_role_dropdown">
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid #333;
+border-radius: 5px;
+color: #000;
+background: #fff;
+padding: 5px 10px;</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Teacher</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Student</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLabel" name="teacher_input_label">
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">padding: 5px 10px;
+color: #000;
+background: #fff;</string>
+            </property>
+            <property name="text">
+             <string>Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="4">
+           <spacer name="verticalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="5" column="8">
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="5" column="1">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>80</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="1">
+           <spacer name="verticalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="5" column="5">
+           <widget class="QPushButton" name="back_to_upload_page_button">
+            <property name="minimumSize">
+             <size>
+              <width>80</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Back</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
