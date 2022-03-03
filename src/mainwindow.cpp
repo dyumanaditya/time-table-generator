@@ -69,3 +69,15 @@ void MainWindow::on_search_tt_button_clicked()
     // Search and find specific Time Table.
 }
 
+
+void MainWindow::on_back_button_2_clicked()
+{
+
+}
+
+
+void MainWindow::on_done_button_clicked()
+{
+
+}
+

@@ -32,6 +32,10 @@ private slots:
 
     void on_search_tt_button_clicked();
 
+    void on_back_button_2_clicked();
+
+    void on_done_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

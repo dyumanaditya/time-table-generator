@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="welcome_page">
        <property name="styleSheet">
@@ -132,9 +132,242 @@ QPushButton:pressed {
        </layout>
       </widget>
       <widget class="QWidget" name="input_data_page">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	border: 1px solid #888;
+	border-radius: 5px;
+	color: #000;
+	background: #fff;
+	padding: 5px 10px;
+}
+
+QWidget {
+	background: #fff;
+}</string>
+       </property>
        <layout class="QGridLayout" name="gridLayout_5">
         <item row="0" column="0">
-         <layout class="QGridLayout" name="input_data_layout"/>
+         <layout class="QGridLayout" name="input_data_layout">
+          <item row="2" column="3">
+           <widget class="QPushButton" name="done_button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Done</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <spacer name="horizontalSpacer_10">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="0" colspan="4">
+           <widget class="QTableWidget" name="input_table">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>833</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Roboto Mono</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: #000;
+background: #fff;</string>
+            </property>
+            <row>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </row>
+            <column>
+             <property name="text">
+              <string>Name</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Email</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Phone</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Number of Courses</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Course 1</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Course 2</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Course 3</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Course 4</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Monday</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Tuesday</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Wednesday</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Thursday</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Friday</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Saturday</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>K1</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>K2</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>K3</string>
+             </property>
+            </column>
+            <item row="0" column="1">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="font">
+              <font>
+               <family>Roboto Mono</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <spacer name="verticalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="back_button_2">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Product Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Back</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <spacer name="horizontalSpacer_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
