@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <string>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,12 +26,17 @@ private slots:
 
     void on_generate_tt_button_clicked();
 
-    void on_pushButton_clicked();
+    void on_back_button_clicked();
+
+    void on_back_to_upload_page_button_clicked();
+
+    void on_search_tt_button_clicked();
+
+    void on_back_button_2_clicked();
+
+    void on_done_button_clicked();
 
 private:
     Ui::MainWindow *ui;
-
-    std::string get_teacher_data_path();
-    std::string get_student_data_path();
 };
 #endif // MAINWINDOW_H
