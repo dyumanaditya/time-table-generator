@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="welcome_page">
        <property name="styleSheet">
@@ -139,6 +139,11 @@ QPushButton:pressed {
 	color: #000;
 	background: #fff;
 	padding: 5px 10px;
+}
+
+QPushButton:pressed {
+	background: #888;
+	color: #fff;
 }
 
 QWidget {
@@ -885,7 +890,7 @@ background: #fff;</string>
      <x>0</x>
      <y>0</y>
      <width>871</width>
-     <height>29</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
