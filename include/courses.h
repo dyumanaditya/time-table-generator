@@ -3,6 +3,7 @@
 
 enum Courses
 {
+    // Total 110
     // Math
     Mathematics,
     Additional_Mathematics,
@@ -51,7 +52,6 @@ enum Courses
     Animal_Behaviour,
     Marine_Biology,
 
-
     // History
     History,
     History_Of_Ancient_And_Early_Medieval_India,
@@ -79,7 +79,6 @@ enum Courses
     Malayalayam,
     Marathi,
 
-
     // Sri Aurobindo
     The_Ideal_Of_Human_Unity,
     The_Human_Cycle,
@@ -101,7 +100,6 @@ enum Courses
     Sri_Aurobindo_And_The_Mother_On_Physical_Education,
     The_Yoga_Of_Self_Perfection,
     Sri_Aurobindo_And_World_Philosophy,
-
 
     // Philosophy
     Introduction_To_Philosophy,

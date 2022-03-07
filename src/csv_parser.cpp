@@ -68,7 +68,6 @@ std::vector<Teacher>* CSVParser::parse_teacher_data(std::string teacher_data_pat
             }
         }
 
-        teacher.print();
         teachers->push_back(teacher);
 
         // Go to next line
@@ -123,9 +122,6 @@ std::vector<Student>* CSVParser::parse_student_data(std::string student_data_pat
             student.add_course(course, std::stoi(periods));
         }
 
-
-
-        student.print();
         students->push_back(student);
 
         // Go to next line

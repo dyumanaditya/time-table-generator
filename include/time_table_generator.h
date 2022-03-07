@@ -14,6 +14,8 @@ public:
     TimeTableGenerator(std::string teacher_data_path, std::string student_data_path);
     ~TimeTableGenerator();
 
+    void generateTimeTable();
+
 private:
     CSVParser csv_parser;
     std::vector<Teacher>* teachers;
