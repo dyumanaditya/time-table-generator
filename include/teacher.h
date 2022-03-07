@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 
-#include "include/courses.h"
 #include "include/days.h"
 #include "include/sections.h"
 
@@ -18,15 +17,16 @@ public:
     void set_phone(std::string phone);
     void set_email(std::string email);
     void add_free_period(Days day, int period);
-    void add_course(Courses course);
+    void add_course(std::string course);
     void add_section(Sections section);
+    void print();
 
 private:
     std::string name;
     std::string phone;
     std::string email;
     std::vector<int> free_periods;
-    std::vector<Courses> courses;
+    std::vector<std::string> courses;
     std::vector<Sections> sections;
 };
 

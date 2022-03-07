@@ -1,5 +1,7 @@
 #include "include/student.h"
 
+#include <iostream>
+
 Student::Student()
 {
 }
@@ -23,12 +25,38 @@ void Student::set_email(std::string email)
     Student::email = email;
 }
 
-void Student::set_section(std::string section)
+void Student::set_section(Sections section)
 {
     Student::section = section;
 }
 
 void Student::add_course(std::string course_name, int periods)
 {
-    Student::courses.insert(std::pair<std::string, int>(course_name, periods));
+    Student::courses.push_back(std::pair<std::string, int>(course_name, periods));
+}
+
+
+void Student::print()
+{
+    std::cout << "Contact Details:" << std::endl;
+    std::cout << name << std::endl;
+    std::cout << email << std::endl;
+    std::cout << phone << std::endl;
+    switch (section)
+    {
+    case Sections::K1:
+        std::cout << "K1" << std::endl;
+        break;
+    case Sections::K2:
+        std::cout << "K2" << std::endl;
+        break;
+    case Sections::K3:
+        std::cout << "K3" << std::endl;
+        break;
+    }
+    std::cout << "Courses Taking & Number of periods:" << std::endl;
+    for (auto course : courses)
+    {
+        std::cout << course.first << " - " << course.second << std::endl;
+    }
 }
