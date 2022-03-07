@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <string>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,5 +31,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    std::string get_teacher_data_path();
+    std::string get_student_data_path();
 };
 #endif // MAINWINDOW_H
