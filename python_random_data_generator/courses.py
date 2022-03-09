@@ -1,6 +1,4 @@
-import csv
-
-subjects = [
+courses = [
     # Math
     "Mathematics",
     "Additional_Mathematics",
@@ -79,34 +77,34 @@ subjects = [
 
 
     # Sri Aurobindo
-"The_Ideal_Of_Human_Unity",
-"The_Human_Cycle",
-"The_Synthesis_Of_Yoga",
-"The_Foundations_Of_Indian_Culture",
-"Savitri",
-"The_Life_Divine",
-"Essays_On_The_Gita",
-"The_Future_Poetry",
-"Sri_Aurobindos_Poetry",
-"War_And_Self_Determination",
-"The_Secret_Of_The_Veda",
-"Letters_On_Yoga",
-"Studies_Of_The_Mothers_Works_French",
-"Integral_Psychology_Of_Sri_Aurobindo",
-"The_Gita_In_The_Light_And_Vision_Of_Sri_Aurobindo",
-"Social_Philosophy_Of_Sri_Aurobindo",
-"Sri_Aurobindo_And_The_Mother_On_Education",
-"Sri_Aurobindo_And_The_Mother_On_Physical_Education",
-"The_Yoga_Of_Self_Perfection",
-"Sri_Aurobindo_And_World_Philosophy",
+    "The_Ideal_Of_Human_Unity",
+    "The_Human_Cycle",
+    "The_Synthesis_Of_Yoga",
+    "The_Foundations_Of_Indian_Culture",
+    "Savitri",
+    "The_Life_Divine",
+    "Essays_On_The_Gita",
+    "The_Future_Poetry",
+    "Sri_Aurobindos_Poetry",
+    "War_And_Self_Determination",
+    "The_Secret_Of_The_Veda",
+    "Letters_On_Yoga",
+    "Studies_Of_The_Mothers_Works_French",
+    "Integral_Psychology_Of_Sri_Aurobindo",
+    "The_Gita_In_The_Light_And_Vision_Of_Sri_Aurobindo",
+    "Social_Philosophy_Of_Sri_Aurobindo",
+    "Sri_Aurobindo_And_The_Mother_On_Education",
+    "Sri_Aurobindo_And_The_Mother_On_Physical_Education",
+    "The_Yoga_Of_Self_Perfection",
+    "Sri_Aurobindo_And_World_Philosophy",
 
 
-# Philosophy
-"Introduction_To_Philosophy",
-"Psychology",
-"Consciousness_Studies",
-"Indian_Philosophy",
-"Indian_And_Western_Philosophy",
+    # Philosophy
+    "Introduction_To_Philosophy",
+    "Psychology",
+    "Consciousness_Studies",
+    "Indian_Philosophy",
+    "Indian_And_Western_Philosophy",
 
     # Global
     "Governance_And_Politics",
@@ -144,7 +142,3 @@ subjects = [
     "Flute"
 ]
 
-with open('eggs.csv', 'w', newline='') as f:
-    writer = csv.writer(f, delimiter=' ',
-                            quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    writer.writerow(['Spam'])
