@@ -1,5 +1,6 @@
 import csv
-import courses
+import random_name_generator as rng
+from courses import courses
 
 
 class RandomGenerator:
@@ -12,7 +13,11 @@ class RandomGenerator:
                                     quotechar='|', quoting=csv.QUOTE_MINIMAL)
             
             for i in self.courses :
-                writer.writerow([i])
+                name = rng.generate_one(
+    descent=(rng.Descent.ITALIAN, rng.Descent.ENGLISH),
+    sex=rng.Sex.MALE
+)
+                writer.writerow([i, name])
 
     def generate_student_csv(self):
         pass
@@ -21,3 +26,5 @@ class RandomGenerator:
 random_generator = RandomGenerator()
 random_generator.generate_student_csv()
 random_generator.generate_teacher_csv()
+
+# print(rng.generate(descent=rng.Descent.ENGLISH, sex=rng.Sex.MALE, limit=2))
