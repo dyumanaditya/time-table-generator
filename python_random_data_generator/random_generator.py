@@ -45,12 +45,15 @@ class RandomGenerator:
                     ]
 
                 for i in range(number_of_courses + 1):
+                    # Selecting a random course from the list
                     course = courses[random.randint(0, len(courses)-1)]
 
+                    # Adding the section name as a suffix to some specific courses
                     if course == "Mathematics" or course == "Physics" or \
                        course == "Chemistry" or course == "Biology":
                         course = course + "_" + section.lower()
                     
+                    # Adding number of periods to courses which need fixed number of periods
                     if course.split("_")[0] == "Mathematics":
                         course = course + ";" + str(parameters.Math)
                     elif course.split("_")[0] == "Physics":
@@ -73,6 +76,7 @@ class RandomGenerator:
                         course = course + ";" + str(parameters.Computer_programming)
                     elif course == "Solar_Science":
                         course = course + ";" + str(parameters.Solar_Science)
+                    # --------------------
                     
                     student_data.append(course)
                 
