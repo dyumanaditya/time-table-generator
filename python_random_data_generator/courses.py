@@ -1,51 +1,46 @@
 courses = [
     # Math
-    "Mathematics",
+    "Mathematics", #5
     "Additional_Mathematics",
     "Subsidary_Mathematics",
-    "Mathematical_Statistics",
-    "Elementary_Statistics",
-    "Numerical_Analysis",
-    "Linear_Algebra",
+    "Mathematical_Statistics", #2
+    "Elementary_Statistics", #2
+    "Numerical_Analysis", #2
+    "Linear_Algebra", #3
 
     # Computer
-    "Computer_Applications",
-    "Computer_Literacy",
-    "Computer_Programming_In_CPP",
+    "Computer_Applications", #2
+    "Computer_Programming_In_CPP", #4
     "Advanced_Electronics",
     "Basic_Electronics",
     "Subjects_In_Technology",
 
     # Physics
-    "Physics_K1",
-    "Physics_K2",
-    "Physics_K3",
+    "Physics", #7
     "Additional_Phyisics",
 
     # Chemistry
-    "Chemistry_K1",
-    "Chemistry_K2",
-    "Chemistry_K3",
+    "Chemistry", #6
     "Additional_Chemistry",
 
     # Solar Science
-    "Solar_Science",
+    "Solar_Science", #2
     "Environmental_Sustainability",
 
     # Biology
-    "Biology",
-    "Molecular_And_Cellular_Biochemistry",
-    "Genetics",
-    "Basic_Medical_Physiology",
-    "Zoology",
-    "Botany",
-    "Tissue_Culture",
-    "Health_Studies",
-    "Embryology",
-    "Evolution",
-    "Ecology",
-    "Animal_Behaviour",
-    "Marine_Biology",
+    "Biology", #4
+    # "Molecular_And_Cellular_Biochemistry",
+    # "Genetics",
+    # "Basic_Medical_Physiology",
+    # "Zoology",
+    # "Botany",
+    # "Tissue_Culture",
+    # "Health_Studies",
+    # "Embryology",
+    # "Evolution",
+    # "Ecology",
+    # "Animal_Behaviour",
+    # "Marine_Biology",
 
 
     # History
