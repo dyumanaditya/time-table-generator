@@ -51,6 +51,29 @@ class RandomGenerator:
                        course == "Chemistry" or course == "Biology":
                         course = course + "_" + section.lower()
                     
+                    if course.split("_")[0] == "Mathematics":
+                        course = course + ";" + str(parameters.Math)
+                    elif course.split("_")[0] == "Physics":
+                        course = course + ";" + str(parameters.Physics)
+                    elif course.split("_")[0] == "Chemistry":
+                        course = course + ";" + str(parameters.Chemistry)
+                    elif course.split("_")[0] == "Biology":
+                        course = course + ";" + str(parameters.Biology)
+                    elif course == "Mathematical_Statistics":
+                        course = course + ";" + str(parameters.Mathematical_Statistics)
+                    elif course == "Elementary_Statistics":
+                        course = course + ";" + str(parameters.Elementary_Statistics)
+                    elif course == "Linear_Algebra":
+                        course = course + ";" + str(parameters.Linear_Algebra)
+                    elif course == "Numerical_Analysis":
+                        course = course + ";" + str(parameters.Numerical_Analysis)
+                    elif course == "Computer_Applications":
+                        course = course + ";" + str(parameters.Computer_applications)
+                    elif course == "Computer_Programming_In_CPP":
+                        course = course + ";" + str(parameters.Computer_programming)
+                    elif course == "Solar_Science":
+                        course = course + ";" + str(parameters.Solar_Science)
+                    
                     student_data.append(course)
                 
                 writer.writerow(student_data)

@@ -11,7 +11,7 @@ courses = [
     # Computer
     "Computer_Applications", #2
     "Computer_Programming_In_CPP", #4
-    "Advanced_Electronics",
+    "Advanced_Electronics", #3? will confirm
     "Basic_Electronics",
     "Subjects_In_Technology",
 
