@@ -1,6 +1,11 @@
 min_courses = 5
 max_courses = 12
 
+min_periods_per_subject = 1
+max_periods_per_subject = 3
+
+max_periods = 40
+
 Math = 5
 Physics = 7
 Chemistry = 6

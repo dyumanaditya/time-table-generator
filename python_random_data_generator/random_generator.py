@@ -37,6 +37,8 @@ class RandomGenerator:
                 #  then all the ten numbers will appear when you preview the CSV file
                 phone = str(random.randint(1,9))
                 number_of_courses = random.randint(parameters.min_courses, parameters.max_courses)
+                max_periods = parameters.max_periods
+
                 for i in range(0,9):
                     phone += str(random.randint(0, 9))
 
@@ -51,8 +53,8 @@ class RandomGenerator:
                     # Adding the section name as a suffix to some specific courses
                     if course == "Mathematics" or course == "Physics" or \
                        course == "Chemistry" or course == "Biology":
-                        course = course + "_" + section.lower()
-                    
+                        course = course + "_" + section.lower()                            
+
                     # Adding number of periods to courses which need fixed number of periods
                     if course.split("_")[0] == "Mathematics":
                         course = course + ";" + str(parameters.Math)
@@ -81,6 +83,13 @@ class RandomGenerator:
                     student_data.append(course)
                 
                 writer.writerow(student_data)
+    
+    def check_remaining_periods(self, remaining_periods):
+        num_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
+
+        if (remaining_periods < num_of_periods) :
+            pass
+
 
 
 random_generator = RandomGenerator()
