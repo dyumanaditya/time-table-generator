@@ -4,13 +4,13 @@ import string
 
 # my imports
 import students
-from courses import courses
+import courses
 import parameters
 
 
 class RandomGenerator:
     def __init__(self):
-        self.courses = courses
+        self.courses = courses.courses
 
     def generate_teacher_csv(self):
         pass
@@ -37,7 +37,7 @@ class RandomGenerator:
                 #  then all the ten numbers will appear when you preview the CSV file
                 phone = str(random.randint(1,9))
                 number_of_courses = random.randint(parameters.min_courses, parameters.max_courses)
-                max_periods = parameters.max_periods
+                remaining_periods = parameters.max_periods
 
                 for i in range(0,9):
                     phone += str(random.randint(0, 9))
@@ -47,49 +47,67 @@ class RandomGenerator:
                     ]
 
                 for i in range(number_of_courses + 1):
+                    if not remaining_periods: break
                     # Selecting a random course from the list
-                    course = courses[random.randint(0, len(courses)-1)]
+                    course = courses.courses[random.randint(0, len(courses.courses)-1)]
 
                     # Adding the section name as a suffix to some specific courses
-                    if course == "Mathematics" or course == "Physics" or \
-                       course == "Chemistry" or course == "Biology":
+                    if course in courses.section_specific_course:
                         course = course + "_" + section.lower()                            
 
                     # Adding number of periods to courses which need fixed number of periods
-                    if course.split("_")[0] == "Mathematics":
-                        course = course + ";" + str(parameters.Math)
-                    elif course.split("_")[0] == "Physics":
-                        course = course + ";" + str(parameters.Physics)
-                    elif course.split("_")[0] == "Chemistry":
-                        course = course + ";" + str(parameters.Chemistry)
-                    elif course.split("_")[0] == "Biology":
-                        course = course + ";" + str(parameters.Biology)
-                    elif course == "Mathematical_Statistics":
-                        course = course + ";" + str(parameters.Mathematical_Statistics)
-                    elif course == "Elementary_Statistics":
-                        course = course + ";" + str(parameters.Elementary_Statistics)
-                    elif course == "Linear_Algebra":
-                        course = course + ";" + str(parameters.Linear_Algebra)
-                    elif course == "Numerical_Analysis":
-                        course = course + ";" + str(parameters.Numerical_Analysis)
-                    elif course == "Computer_Applications":
-                        course = course + ";" + str(parameters.Computer_applications)
-                    elif course == "Computer_Programming_In_CPP":
-                        course = course + ";" + str(parameters.Computer_programming)
-                    elif course == "Solar_Science":
-                        course = course + ";" + str(parameters.Solar_Science)
+                    # if course.split("_")[0] == "Mathematics":
+                    #     #self.check_remaining_periods(max_periods, parameters.Math)
+                    #     course = course + ";" + str(parameters.Math)
+                    # elif course.split("_")[0] == "Physics":
+                    #     course = course + ";" + str(parameters.Physics)
+                    # elif course.split("_")[0] == "Chemistry":
+                    #     course = course + ";" + str(parameters.Chemistry)
+                    # elif course.split("_")[0] == "Biology":
+                    #     course = course + ";" + str(parameters.Biology)
+                    # elif course == "Mathematical_Statistics":
+                    #     course = course + ";" + str(parameters.Mathematical_Statistics)
+                    # elif course == "Elementary_Statistics":
+                    #     course = course + ";" + str(parameters.Elementary_Statistics)
+                    # elif course == "Linear_Algebra":
+                    #     course = course + ";" + str(parameters.Linear_Algebra)
+                    # elif course == "Numerical_Analysis":
+                    #     course = course + ";" + str(parameters.Numerical_Analysis)
+                    # elif course == "Computer_Applications":
+                    #     course = course + ";" + str(parameters.Computer_applications)
+                    # elif course == "Computer_Programming_In_CPP":
+                    #     course = course + ";" + str(parameters.Computer_programming)
+                    # elif course == "Solar_Science":
+                    #     self.select_course(remaining_periods, parameters.Solar_Science, course)
+                    #     course = course + ";" + str(parameters.Solar_Science)
+
+                    for c in range(0, len(courses.courses_fixed_periods)):
+                        pass
+                    else:
+                        number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
+                        course = self.check_remaining_periods(remaining_periods, number_of_periods, course)
+                        remaining_periods -= int(course.split(";")[1])
                     # --------------------
                     
                     student_data.append(course)
                 
                 writer.writerow(student_data)
     
-    def check_remaining_periods(self, remaining_periods):
-        num_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
+    def check_remaining_periods(self, remaining_periods, number_of_periods, course):
+        if number_of_periods > remaining_periods:
+            return course + ";" + str(remaining_periods)
+        else:
+            return course + ";" + str(number_of_periods)
 
-        if (remaining_periods < num_of_periods) :
-            pass
-
+    def select_course(self, remaining_periods, number_of_periods, course):
+        if number_of_periods > remaining_periods:
+            course = courses.courses[random.randint(0, len(courses.courses)-1)]
+            
+            for c in range(0, len(courses.courses_fixed_periods)) :
+                if (courses.courses_fixed_periods[c][0] == course):
+                    
+        else:
+            return course
 
 
 random_generator = RandomGenerator()

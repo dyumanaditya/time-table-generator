@@ -1,3 +1,32 @@
+import parameters
+
+section_specific_course = [
+    "Mathematics",
+    "Physics",
+    "Chemistry",
+    "Biology"
+]
+
+courses_fixed_periods = [
+    ("Mathematics", parameters.Math),
+    ("Mathematical_Statistics", parameters.Mathematical_Statistics),
+    ("Elementary_Statistics", parameters.Elementary_Statistics),
+    ("Numerical_Analysis", parameters.Numerical_Analysis),
+    ("Linear_Algebra", parameters.Linear_Algebra),
+
+    # Computer
+    ("Computer_Applications", parameters.Computer_applications),
+    ("Computer_Programming_In_CPP", parameters.Computer_programming),
+
+    ("Physics", parameters.Physics),
+
+    ("Chemistry", parameters.Chemistry),
+
+    ("Solar_Science", parameters.Solar_Science),
+
+    ("Biology", parameters.Biology)
+]
+
 courses = [
     # Math
     "Mathematics", #5
