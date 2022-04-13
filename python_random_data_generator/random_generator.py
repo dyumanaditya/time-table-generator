@@ -53,6 +53,8 @@ class RandomGenerator:
 
                     # Adding the section name as a suffix to some specific courses
                     if course in courses.section_specific_course:
+                        for c in range(0, len(courses.section_specific_course)):
+                            pass
                         course = course + "_" + section.lower()                            
 
                     # Adding number of periods to courses which need fixed number of periods
@@ -82,11 +84,12 @@ class RandomGenerator:
                     #     course = course + ";" + str(parameters.Solar_Science)
 
                     for c in range(0, len(courses.courses_fixed_periods)):
-                        pass
-                    else:
-                        number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
-                        course = self.check_remaining_periods(remaining_periods, number_of_periods, course)
-                        remaining_periods -= int(course.split(";")[1])
+                        if 0:
+                            pass
+                        else:
+                            number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
+                            course = self.check_remaining_periods(remaining_periods, number_of_periods, course)
+                            remaining_periods -= int(course.split(";")[1])
                     # --------------------
                     
                     student_data.append(course)
@@ -103,11 +106,17 @@ class RandomGenerator:
         if number_of_periods > remaining_periods:
             course = courses.courses[random.randint(0, len(courses.courses)-1)]
             
-            for c in range(0, len(courses.courses_fixed_periods)) :
-                if (courses.courses_fixed_periods[c][0] == course):
-                    
+            if course in courses.courses_fixed_periods:
+                number_of_periods = courses.courses_fixed_periods_with_periods[course]
+                while (number_of_periods > remaining_periods):
+                    course = courses.courses[random.randint(0, len(courses.courses)-1)]
+                    number_of_periods = courses.courses_fixed_periods_with_periods[course]
+                    if course not in courses.courses_fixed_periods: break
+            
+            return (course, remaining_periods - number_of_periods)
+
         else:
-            return course
+            return (course, remaining_periods - number_of_periods)
 
 
 random_generator = RandomGenerator()

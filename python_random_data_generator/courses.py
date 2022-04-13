@@ -7,24 +7,38 @@ section_specific_course = [
     "Biology"
 ]
 
+courses_fixed_periods_with_periods = {
+    "Mathematics": parameters.Math,
+    "Physics": parameters.Physics,
+    "Chemistry": parameters.Chemistry,
+    "Biology": parameters.Biology,
+
+    "Mathematical_Statistics": parameters.Mathematical_Statistics,
+    "Elementary_Statistics": parameters.Elementary_Statistics,
+    "Numerical_Analysis": parameters.Numerical_Analysis,
+    "Linear_Algebra": parameters.Linear_Algebra,
+
+    "Computer_Applications": parameters.Computer_applications,
+    "Computer_Programming_In_CPP": parameters.Computer_programming,
+
+    "Solar_Science": parameters.Solar_Science
+}
+
 courses_fixed_periods = [
-    ("Mathematics", parameters.Math),
-    ("Mathematical_Statistics", parameters.Mathematical_Statistics),
-    ("Elementary_Statistics", parameters.Elementary_Statistics),
-    ("Numerical_Analysis", parameters.Numerical_Analysis),
-    ("Linear_Algebra", parameters.Linear_Algebra),
+    "Mathematics",
+    "Physics",
+    "Chemistry",
+    "Biology",
 
-    # Computer
-    ("Computer_Applications", parameters.Computer_applications),
-    ("Computer_Programming_In_CPP", parameters.Computer_programming),
+    "Mathematical_Statistics",
+    "Elementary_Statistics",
+    "Numerical_Analysis",
+    "Linear_Algebra",
 
-    ("Physics", parameters.Physics),
+    "Computer_Applications",
+    "Computer_Programming_In_CPP",
 
-    ("Chemistry", parameters.Chemistry),
-
-    ("Solar_Science", parameters.Solar_Science),
-
-    ("Biology", parameters.Biology)
+    "Solar_Science",
 ]
 
 courses = [
