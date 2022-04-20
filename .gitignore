@@ -54,3 +54,4 @@ compile_commands.json
 # Ani added
 python_random_data_generator/*.csv
 python_random_data_generator/__pycache__
+.vscode/
