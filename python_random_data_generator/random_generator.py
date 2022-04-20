@@ -84,8 +84,8 @@ class RandomGenerator:
                     #     course = course + ";" + str(parameters.Solar_Science)
 
                     for c in range(0, len(courses.courses_fixed_periods)):
-                        if 0:
-                            pass
+                        if course.split("_")[0] in courses.courses_fixed_periods:
+                            print(course)
                         else:
                             number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
                             course = self.check_remaining_periods(remaining_periods, number_of_periods, course)
@@ -94,7 +94,7 @@ class RandomGenerator:
                     
                     student_data.append(course)
                 
-                writer.writerow(student_data)
+                # writer.writerow(student_data)
     
     def check_remaining_periods(self, remaining_periods, number_of_periods, course):
         if number_of_periods > remaining_periods:

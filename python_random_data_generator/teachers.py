@@ -94,4 +94,4 @@ Vinod bhai 94867 46768
 Vishnu bhai
 Yann bhai yann@auromail.net 94422 94226
 
-# regex is had used: \b(0?[1-9]|[1-9][0-9]|100)\b 
+# regex I had used: \b(0?[1-9]|[1-9][0-9]|100)\b 
