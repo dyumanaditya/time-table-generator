@@ -85,10 +85,10 @@ class RandomGenerator:
 
                     for c in range(0, len(courses.courses_fixed_periods)):
                         if course.split("_")[0] in courses.courses_fixed_periods:
-                            print(course)
+                            course = self.check_remaining_periods(remaining_periods, courses.courses_fixed_periods_with_periods[course.split("_")[0]], course)[0]
                         else:
                             number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
-                            course = self.check_remaining_periods(remaining_periods, number_of_periods, course)
+                            course = self.check_remaining_periods(remaining_periods, number_of_periods, course)[0]
                             remaining_periods -= int(course.split(";")[1])
                     # --------------------
                     
@@ -98,7 +98,7 @@ class RandomGenerator:
     
     def check_remaining_periods(self, remaining_periods, number_of_periods, course):
         if number_of_periods > remaining_periods:
-            return course + ";" + str(remaining_periods)
+            return self.select_course(remaining_periods, number_of_periods, course)
         else:
             return course + ";" + str(number_of_periods)
 
@@ -110,9 +110,14 @@ class RandomGenerator:
                 number_of_periods = courses.courses_fixed_periods_with_periods[course]
                 while (number_of_periods > remaining_periods):
                     course = courses.courses[random.randint(0, len(courses.courses)-1)]
-                    number_of_periods = courses.courses_fixed_periods_with_periods[course]
-                    if course not in courses.courses_fixed_periods: break
-            
+                    if course in courses.courses_fixed_periods: 
+                        if remaining_periods > courses.courses_fixed_periods_with_periods[course]:
+                            return (course, remaining_periods - courses.courses_fixed_periods_with_periods[course])
+                    else:
+                        number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
+                        if number_of_periods <= number_of_periods: return (course, remaining_periods - number_of_periods)
+                        else if remaining_periods > 0: return (course, remaining_periods - number_of_periods)
+
             return (course, remaining_periods - number_of_periods)
 
         else:
