@@ -59,11 +59,19 @@ class RandomGenerator:
 
                     for c in range(0, len(courses.courses_fixed_periods)):
                         if course.split("_")[0] in courses.courses_fixed_periods:
-                            course = self.check_remaining_periods(remaining_periods, courses.courses_fixed_periods_with_periods[course.split("_")[0]], course)[0]
+                            course_tuple = self.check_remaining_periods(remaining_periods, courses.courses_fixed_periods_with_periods[course.split("_")[0]], course)
+                            course = course_tuple[0]
+                            print(type(course_tuple[1]), course_tuple[1])
+                            remaining_periods = int(course_tuple[1])
+                            # print(course_tuple[1])
                         else:
                             number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
-                            course = self.check_remaining_periods(remaining_periods, number_of_periods, course)[0]
-                            remaining_periods -= int(course.split(";")[1])
+                            course_tuple = self.check_remaining_periods(remaining_periods, number_of_periods, course)
+                            course = course_tuple[0]
+                            # remaining_periods -= int(course.split(";")[1])
+                            print(type(course_tuple[1]), course_tuple[1])
+                            remaining_periods = int(course_tuple[1])
+                            # print(course_tuple[1])
                     # --------------------
                     
                     student_data.append(course)
@@ -71,6 +79,7 @@ class RandomGenerator:
                 # writer.writerow(student_data)
     
     def check_remaining_periods(self, remaining_periods, number_of_periods, course):
+        # print(type(remaining_periods), remaining_periods)
         if number_of_periods > remaining_periods:
             return self.select_course(remaining_periods, number_of_periods, course)
         else:
@@ -86,16 +95,28 @@ class RandomGenerator:
                     course = courses.courses[random.randint(0, len(courses.courses)-1)]
                     if course in courses.courses_fixed_periods: 
                         if remaining_periods > courses.courses_fixed_periods_with_periods[course]:
-                            return (course, remaining_periods - courses.courses_fixed_periods_with_periods[course])
+                            remaining_periods -= courses.courses_fixed_periods_with_periods[course]
+                            print(remaining_periods)
+                            return (course, remaining_periods)
                     else:
                         number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
-                        if number_of_periods <= number_of_periods: return (course, remaining_periods - number_of_periods)
-                        else if remaining_periods > 0: return (course, remaining_periods - number_of_periods)
+                        if number_of_periods <= number_of_periods: 
+                            remaining_periods -= number_of_periods
+                            print(remaining_periods)
+                            return (course, remaining_periods)
+                        elif remaining_periods > 0: 
+                            remaining_periods -= number_of_periods
+                            print(remaining_periods)
+                            return (course, remaining_periods)
 
-            return (course, remaining_periods - number_of_periods)
+            remaining_periods -= number_of_periods
+            print(remaining_periods)
+            return (course, remaining_periods)
 
         else:
-            return (course, remaining_periods - number_of_periods)
+            remaining_periods -= number_of_periods
+            print(remaining_periods)
+            return (course, remaining_periods)
 
 
 random_generator = RandomGenerator()
