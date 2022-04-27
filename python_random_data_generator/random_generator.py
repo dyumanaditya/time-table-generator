@@ -57,32 +57,6 @@ class RandomGenerator:
                             pass
                         course = course + "_" + section.lower()                            
 
-                    # Adding number of periods to courses which need fixed number of periods
-                    # if course.split("_")[0] == "Mathematics":
-                    #     #self.check_remaining_periods(max_periods, parameters.Math)
-                    #     course = course + ";" + str(parameters.Math)
-                    # elif course.split("_")[0] == "Physics":
-                    #     course = course + ";" + str(parameters.Physics)
-                    # elif course.split("_")[0] == "Chemistry":
-                    #     course = course + ";" + str(parameters.Chemistry)
-                    # elif course.split("_")[0] == "Biology":
-                    #     course = course + ";" + str(parameters.Biology)
-                    # elif course == "Mathematical_Statistics":
-                    #     course = course + ";" + str(parameters.Mathematical_Statistics)
-                    # elif course == "Elementary_Statistics":
-                    #     course = course + ";" + str(parameters.Elementary_Statistics)
-                    # elif course == "Linear_Algebra":
-                    #     course = course + ";" + str(parameters.Linear_Algebra)
-                    # elif course == "Numerical_Analysis":
-                    #     course = course + ";" + str(parameters.Numerical_Analysis)
-                    # elif course == "Computer_Applications":
-                    #     course = course + ";" + str(parameters.Computer_applications)
-                    # elif course == "Computer_Programming_In_CPP":
-                    #     course = course + ";" + str(parameters.Computer_programming)
-                    # elif course == "Solar_Science":
-                    #     self.select_course(remaining_periods, parameters.Solar_Science, course)
-                    #     course = course + ";" + str(parameters.Solar_Science)
-
                     for c in range(0, len(courses.courses_fixed_periods)):
                         if course.split("_")[0] in courses.courses_fixed_periods:
                             course = self.check_remaining_periods(remaining_periods, courses.courses_fixed_periods_with_periods[course.split("_")[0]], course)[0]
