@@ -8,6 +8,8 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDEPATH += include/
+
 SOURCES += \
     src/csv_parser.cpp \
     src/main.cpp \
@@ -24,6 +26,14 @@ HEADERS += \
     include/sections.h \
     include/student.h \
     include/teacher.h \
+    include/time-table-generator/courses.h \
+    include/time-table-generator/csv_parser.h \
+    include/time-table-generator/days.h \
+    include/time-table-generator/mainwindow.h \
+    include/time-table-generator/sections.h \
+    include/time-table-generator/student.h \
+    include/time-table-generator/teacher.h \
+    include/time-table-generator/time_table_generator.h \
     include/time_table_generator.h
 
 FORMS += \

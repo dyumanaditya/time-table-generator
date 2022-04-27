@@ -1,5 +1,5 @@
-#include "include/mainwindow.h"
-#include "include/time_table_generator.h"
+#include "time-table-generator/mainwindow.h"
+#include "time-table-generator/time_table_generator.h"
 #include "ui_mainwindow.h"
 
 #include <QFileDialog>
@@ -62,6 +62,7 @@ void MainWindow::on_generate_tt_button_clicked()
     std::string teacher_data_path = get_teacher_data_path();
     std::string student_data_path = get_student_data_path();
     TimeTableGenerator time_table_generator(teacher_data_path, student_data_path);
+    time_table_generator.generateTimeTable();
 }
 
 

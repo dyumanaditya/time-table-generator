@@ -1,4 +1,4 @@
-#include "include/student.h"
+#include "time-table-generator/student.h"
 
 #include <iostream>
 
@@ -30,9 +30,9 @@ void Student::set_section(Sections section)
     Student::section = section;
 }
 
-void Student::add_course(std::string course_name, int periods)
+void Student::add_course(std::string course_name, std::string teacher_name, int periods)
 {
-    Student::courses.push_back(std::pair<std::string, int>(course_name, periods));
+    Student::courses.push_back(std::tuple<std::string, std::string, int>(course_name, teacher_name, periods));
 }
 
 
@@ -60,3 +60,25 @@ void Student::print()
         std::cout << course.first << " - " << course.second << std::endl;
     }
 }
+
+
+std::string Student::get_name()
+{
+    return name;
+}
+
+Sections Student::get_section()
+{
+    return section;
+}
+
+std::string Student::get_email()
+{
+    return email;
+}
+
+std::string Student::get_phone()
+{
+    return phone;
+}
+

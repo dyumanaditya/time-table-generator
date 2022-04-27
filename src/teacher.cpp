@@ -1,4 +1,4 @@
-#include "include/teacher.h"
+#include "time-table-generator/teacher.h"
 
 #include <iostream>
 
@@ -40,6 +40,29 @@ void Teacher::add_section(Sections section)
     sections.push_back(section);
 }
 
+void Teacher::set_num_students(Sections section, int num)
+{
+    switch (section)
+    {
+    case Sections::K1:
+    {
+        num_students_k1 = num;
+        break;
+    }
+
+    case Sections::K2:
+    {
+        num_students_k2 = num;
+        break;
+    }
+    case Sections::K3:
+    {
+        num_students_k3 = num;
+        break;
+    }
+    }
+}
+
 void Teacher::print()
 {
     std::cout << "Contact Details:" << std::endl;
@@ -71,5 +94,48 @@ void Teacher::print()
             std::cout << "K3" << std::endl;
             break;
         }
+    }
+}
+
+std::string Teacher::get_name()
+{
+    return name;
+}
+
+std::string Teacher::get_phone()
+{
+    return phone;
+}
+
+std::string Teacher::get_email()
+{
+    return email;
+}
+
+std::vector<int> Teacher::get_free_periods()
+{
+    return free_periods;
+}
+
+int Teacher::get_num_students(Sections section)
+{
+    switch (section)
+    {
+    case Sections::K1:
+    {
+        return num_students_k1;
+        break;
+    }
+
+    case Sections::K2:
+    {
+        return num_students_k2;
+        break;
+    }
+    case Sections::K3:
+    {
+        return num_students_k3;
+        break;
+    }
     }
 }

@@ -1,6 +1,10 @@
 #ifndef COURSES_H
 #define COURSES_H
 
+#include <vector>
+#include <string>
+
+
 enum Courses
 {
     // Total 110
@@ -22,9 +26,9 @@ enum Courses
     Subjects_In_Technology,
 
     // Physics
+    Physics_K3,
     Physics_K1,
     Physics_K2,
-    Physics_K3,
     Additional_Phyisics,
 
     // Chemistry
@@ -144,4 +148,53 @@ enum Courses
     Flute
 };
 
+std::vector<std::string> Science_Courses = {
+    // Math
+    "Mathematics",
+    "Additional_Mathematics",
+    "Subsidary_Mathematics",
+    "Mathematical_Statistics",
+    "Elementary_Statistics",
+    "Numerical_Analysis",
+    "Linear_Algebra",
+
+    // Computer
+    "Computer_Applications",
+    "Computer_Literacy",
+    "Computer_Programming_In_CPP",
+    "Advanced_Electronics",
+    "Basic_Electronics",
+    "Subjects_In_Technology",
+
+    // Physics
+    "Physics_K3",
+    "Physics_K1",
+    "Physics_K2",
+    "Additional_Phyisics",
+
+    // Chemistry
+    "Chemistry_K1",
+    "Chemistry_K2",
+    "Chemistry_K3",
+    "Additional_Chemistry",
+
+    // Solar Science
+    "Solar_Science",
+    "Environmental_Sustainability",
+
+    // Biology
+    "Biology",
+    "Molecular_And_Cellular_Biochemistry",
+    "Genetics",
+    "Basic_Medical_Physiology",
+    "Zoology",
+    "Botany",
+    "Tissue_Culture",
+    "Health_Studies",
+    "Embryology",
+    "Evolution",
+    "Ecology",
+    "Animal_Behaviour",
+    "Marine_Biology",
+};
 #endif // COURSES_H

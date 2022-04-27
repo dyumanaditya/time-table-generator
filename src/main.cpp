@@ -1,4 +1,4 @@
-#include "include/mainwindow.h"
+#include "time-table-generator/mainwindow.h"
 
 #include <QApplication>
 
