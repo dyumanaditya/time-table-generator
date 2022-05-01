@@ -23,14 +23,14 @@ class RandomGenerator:
 
         with open(section + "_" + 'students_data.csv', 'w', newline='') as f:
             writer = csv.writer(f, quotechar=',', quoting=csv.QUOTE_MINIMAL)
-            # 1.0 Generating the column titles
+            # 1. Generating the column titles
             column_titles = ["Name","Section","Email","Phone","Number of Courses"]
             for i in range(parameters.max_courses + 1) :
                 column_titles.append("Course_" + str(i))
 
             writer.writerow(column_titles)
-            # 1.0-----------------
-            # 2.0 Generating data for each student in a list
+            # 1.-----------------
+            # 2. Generating data for each student in a list
             for student in self.students:
                 phone = self.__generate_phone()
                 number_of_courses = random.randint(parameters.min_courses, parameters.max_courses)
@@ -41,7 +41,6 @@ class RandomGenerator:
                     if not remaining_periods: break
                     # 2.1 Selecting a random course from the list
                     course = courses.courses[random.randint(0, len(courses.courses)-1)]
-                    # course = self.__check_if_section_specific_course(course, section)                            
                     number_of_periods = 0
                     if course in courses.courses_fixed_periods:
                         number_of_periods = courses.courses_fixed_periods_with_periods[course]
@@ -54,7 +53,7 @@ class RandomGenerator:
                     student_data.append(course)
                     # 2.1--------------------
                 writer.writerow(student_data)
-            # 2.0--------------------
+            # 2.--------------------
     
     def check_remaining_periods(self, remaining_periods: int, number_of_periods: int, course: string, section: str) -> tuple:
         if number_of_periods > remaining_periods:
