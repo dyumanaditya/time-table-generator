@@ -30,9 +30,9 @@ void Teacher::add_free_period(Days day, int period)
     free_periods.push_back((day)*7 + period);
 }
 
-void Teacher::add_course(std::string course)
+void Teacher::add_course(std::string course, bool is_science)
 {
-    courses.push_back(course);
+    courses.push_back(std::make_pair(course, is_science));
 }
 
 void Teacher::add_section(Sections section)

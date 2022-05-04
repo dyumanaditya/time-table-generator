@@ -16,7 +16,8 @@ SOURCES += \
     src/mainwindow.cpp \
     src/student.cpp \
     src/teacher.cpp \
-    src/time_table_generator.cpp
+    src/time_table_generator.cpp \
+    src/utils.cpp
 
 HEADERS += \
     include/courses.h \
@@ -34,6 +35,7 @@ HEADERS += \
     include/time-table-generator/student.h \
     include/time-table-generator/teacher.h \
     include/time-table-generator/time_table_generator.h \
+    include/time-table-generator/utils.h \
     include/time_table_generator.h
 
 FORMS += \

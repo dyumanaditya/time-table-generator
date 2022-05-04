@@ -19,7 +19,6 @@ enum Courses
 
     // Computer
     Computer_Applications,
-    Computer_Literacy,
     Computer_Programming_In_CPP,
     Advanced_Electronics,
     Basic_Electronics,
@@ -43,18 +42,6 @@ enum Courses
 
     // Biology
     Biology,
-    Molecular_And_Cellular_Biochemistry,
-    Genetics,
-    Basic_Medical_Physiology,
-    Zoology,
-    Botany,
-    Tissue_Culture,
-    Health_Studies,
-    Embryology,
-    Evolution,
-    Ecology,
-    Animal_Behaviour,
-    Marine_Biology,
 
     // History
     History,
@@ -148,7 +135,7 @@ enum Courses
     Flute
 };
 
-std::vector<std::string> Science_Courses = {
+std::vector<std::string> Fixed_Period_Courses = {
     // Math
     "Mathematics",
     "Additional_Mathematics",
@@ -162,9 +149,6 @@ std::vector<std::string> Science_Courses = {
     "Computer_Applications",
     "Computer_Literacy",
     "Computer_Programming_In_CPP",
-    "Advanced_Electronics",
-    "Basic_Electronics",
-    "Subjects_In_Technology",
 
     // Physics
     "Physics_K3",

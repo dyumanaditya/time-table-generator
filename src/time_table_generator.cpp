@@ -72,7 +72,6 @@ void TimeTableGenerator::sort_teacher_availability()
             teacher->set_num_students(Sections::K2, num_students_k2);
             teacher->set_num_students(Sections::K3, num_students_k3);
         }
-
      }
 
     // Find max_periods for students

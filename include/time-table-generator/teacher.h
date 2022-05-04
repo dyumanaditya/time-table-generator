@@ -3,6 +3,7 @@
 \
 #include <string>
 #include <vector>
+#include <utility>
 
 #include "time-table-generator/days.h"
 #include "time-table-generator/sections.h"
@@ -17,7 +18,7 @@ public:
     void set_phone(std::string phone);
     void set_email(std::string email);
     void add_free_period(Days day, int period);
-    void add_course(std::string course);
+    void add_course(std::string course, bool is_science);
     void add_section(Sections section);
     void set_num_students(Sections section, int num);
     void print();
@@ -33,7 +34,7 @@ private:
     std::string phone;
     std::string email;
     std::vector<int> free_periods;
-    std::vector<std::string> courses;
+    std::vector<std::pair<std::string, bool> > courses;
     std::vector<Sections> sections;
     int num_students_k1;
     int num_students_k2;
