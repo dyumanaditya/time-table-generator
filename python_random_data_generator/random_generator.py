@@ -11,6 +11,7 @@ import parameters
 class RandomGenerator:
     def __init__(self):
         self.courses = courses.courses.copy()
+        self.max_courses_of_student = 0
 
     def generate_teacher_csv(self):
         pass
@@ -21,19 +22,10 @@ class RandomGenerator:
         else: self.students = students.k3_students
 
         with open(section + "_" + 'students_data.csv', 'w', newline='') as f:
-            writer = csv.writer(f, quotechar=',', quoting=csv.QUOTE_MINIMAL)
-            # 1. Generating the column titles
-            column_titles = ["Name","Section","Email","Phone","Number of Courses"]
-            for i in range(parameters.max_periods) :
-                column_titles.append("Course_" + str(i))
-
-            writer.writerow(column_titles)
-            # 1.-----------------
-            # 2. Generating data for each student in a list
+            all_students_data = []
+            # 1. Generating data for each student in a list
             for student in self.students:
-                # print(student)
                 phone = self.__generate_phone()
-                # number_of_courses = random.randint(parameters.min_courses, parameters.max_courses)
                 number_of_courses = 0
                 remaining_periods = random.randint(parameters.min_periods, parameters.max_periods)
                 self.courses = courses.courses.copy()
@@ -41,8 +33,7 @@ class RandomGenerator:
                 courses_data = []
 
                 while(remaining_periods):
-                    # if not remaining_periods: break
-                    # 2.1 Selecting a random course from the list
+                    # Selecting a random course from the list
                     course = self.courses[random.randint(0, len(self.courses)-1)]
                     number_of_periods = 0
                     if course in courses.courses_fixed_periods:
@@ -55,10 +46,23 @@ class RandomGenerator:
                     remaining_periods = int(course_tuple[1])
                     number_of_courses += 1
                     courses_data.append(course)
-                    # 2.1--------------------
+                    # --------------------
+                self.max_courses_of_student = max(self.max_courses_of_student, number_of_courses)
                 student_data.append(number_of_courses)
                 for c in courses_data: student_data.append(c)
-                writer.writerow(student_data)
+                # One student's data is ready
+                all_students_data.append(student_data)
+            # --------------------
+            # 2. Finally, writing all the data to .csv file
+            writer = csv.writer(f, quotechar=',', quoting=csv.QUOTE_MINIMAL)
+            # Generating the column titles
+            column_titles = ["Name","Section","Email","Phone","Number of Courses"]
+            for i in range(self.max_courses_of_student) :
+                column_titles.append("Course_" + str(i))
+
+            writer.writerow(column_titles)
+            # Writing student data
+            for student_data in all_students_data: writer.writerow(student_data)
             # 2.--------------------
     
     def check_remaining_periods(self, remaining_periods: int, number_of_periods: int, course: string, section: str) -> tuple:
@@ -86,22 +90,22 @@ class RandomGenerator:
                     if remaining_periods >= number_of_periods:
                         remaining_periods -= number_of_periods
                         self.courses.pop(self.courses.index(course))
-                        # print(len(self.courses))
                         return (self.__add_number_of_periods_after_colon(self.__check_if_section_specific_course(course, section), number_of_periods), remaining_periods)
                 else:
                     if remaining_periods > parameters.max_periods_per_subject:
-                        # while (number_of_periods > remaining_periods):
                         number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
                     else: number_of_periods = remaining_periods
                     
                     remaining_periods -= number_of_periods
                     self.courses.pop(self.courses.index(course))
-                    # print(len(self.courses))
                     return (self.__add_number_of_periods_after_colon(course, number_of_periods), remaining_periods)
         else:
+            if remaining_periods > parameters.max_periods_per_subject:
+                number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
+            else: number_of_periods = remaining_periods
+            
             remaining_periods -= number_of_periods
             self.courses.pop(self.courses.index(course))
-            # print(len(self.courses))
             return (self.__add_number_of_periods_after_colon(course, number_of_periods), remaining_periods)
 
     def __generate_phone(self) -> str:
