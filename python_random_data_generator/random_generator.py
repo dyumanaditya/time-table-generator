@@ -8,11 +8,7 @@ import courses
 import parameters
 
 
-class RandomGenerator:
-    def __init__(self):
-        self.courses = courses.courses.copy()
-        self.max_courses_of_student = 0
-
+class RandomGenerator:        
     def generate_teacher_csv(self):
         pass
 
@@ -21,39 +17,40 @@ class RandomGenerator:
         elif section == "K2": self.students = students.k2_students
         else: self.students = students.k3_students
 
-        with open(section + "_" + 'students_data.csv', 'w', newline='') as f:
-            all_students_data = []
-            # 1. Generating data for each student in a list
-            for student in self.students:
-                phone = self.__generate_phone()
-                number_of_courses = 0
-                remaining_periods = random.randint(parameters.min_periods, parameters.max_periods)
-                self.courses = courses.courses.copy()
-                student_data = [ student, section, student.split()[0].lower() + ".email@poop.com", phone ]
-                courses_data = []
+        self.max_courses_of_student = 0
+        all_students_data = []
+        # 1. Generating data for each student in a list
+        for student in self.students:
+            phone = self.__generate_phone()
+            number_of_courses = 0
+            remaining_periods = random.randint(parameters.min_periods, parameters.max_periods)
+            self.courses = courses.courses.copy()
+            student_data = [ student, section, student.split()[0].lower() + ".email@poop.com", phone ]
+            courses_data = []
 
-                while(remaining_periods):
-                    # Selecting a random course from the list
-                    course = self.courses[random.randint(0, len(self.courses)-1)]
-                    number_of_periods = 0
-                    if course in courses.courses_fixed_periods:
-                        number_of_periods = courses.courses_fixed_periods_with_periods[course]
-                    else:
-                        number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
-                    
-                    course_tuple = self.check_remaining_periods(remaining_periods, number_of_periods, course, section)
-                    course = course_tuple[0]
-                    remaining_periods = int(course_tuple[1])
-                    number_of_courses += 1
-                    courses_data.append(course)
-                    # --------------------
-                self.max_courses_of_student = max(self.max_courses_of_student, number_of_courses)
-                student_data.append(number_of_courses)
-                for c in courses_data: student_data.append(c)
-                # One student's data is ready
-                all_students_data.append(student_data)
-            # --------------------
-            # 2. Finally, writing all the data to .csv file
+            while(remaining_periods):
+                # Selecting a random course from the list
+                course = self.courses[random.randint(0, len(self.courses)-1)]
+                number_of_periods = 0
+                if course in courses.courses_fixed_periods:
+                    number_of_periods = courses.courses_fixed_periods_with_periods[course]
+                else:
+                    number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
+                
+                course_tuple = self.check_remaining_periods(remaining_periods, number_of_periods, course, section)
+                course = course_tuple[0]
+                remaining_periods = int(course_tuple[1])
+                number_of_courses += 1
+                courses_data.append(course)
+
+            self.max_courses_of_student = max(self.max_courses_of_student, number_of_courses)
+            student_data.append(number_of_courses)
+            for c in courses_data: student_data.append(c)
+            # One student's data is ready
+            all_students_data.append(student_data)
+        # -------------------- All students' data in a particular section is ready --------------------
+        # 2. Finally, writing all the data to .csv file
+        with open(section + "_" + 'students_data.csv', 'w', newline='') as f:
             writer = csv.writer(f, quotechar=',', quoting=csv.QUOTE_MINIMAL)
             # Generating the column titles
             column_titles = ["Name","Section","Email","Phone","Number of Courses"]
@@ -63,7 +60,7 @@ class RandomGenerator:
             writer.writerow(column_titles)
             # Writing student data
             for student_data in all_students_data: writer.writerow(student_data)
-            # 2.--------------------
+        # 2.--------------------
     
     def check_remaining_periods(self, remaining_periods: int, number_of_periods: int, course: string, section: str) -> tuple:
         if number_of_periods > remaining_periods:
