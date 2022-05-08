@@ -67,46 +67,36 @@ class RandomGenerator:
     
     def check_remaining_periods(self, remaining_periods: int, number_of_periods: int, course: string, section: str) -> tuple:
         if number_of_periods > remaining_periods:
-            return self.select_a_different_course(remaining_periods, number_of_periods, course, section)
+            if course in courses.courses_fixed_periods:
+                return self.select_a_different_course(remaining_periods, number_of_periods, course, section)
+            else:
+                if remaining_periods > parameters.max_periods_per_subject:
+                    number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
+                else: number_of_periods = remaining_periods
+                
+                return (self.__add_number_of_periods_after_colon(self.courses.pop(self.courses.index(course)), number_of_periods), remaining_periods - number_of_periods)
         else:
-            return (self.__add_number_of_periods_after_colon(self.__check_if_section_specific_course(course, section), number_of_periods), remaining_periods - number_of_periods)
+            return (self.__add_number_of_periods_after_colon(self.__check_if_section_specific_course(self.courses.pop(self.courses.index(course)), section), number_of_periods), remaining_periods - number_of_periods)
 
     def select_a_different_course(self, remaining_periods: int, number_of_periods: int, course: string, section: str) -> tuple:
-        if course in courses.courses_fixed_periods:
-            # Nothing can be done to reduce the number of periods,
-            #     as the previous course had fixed periods, 
-            #     and the number of periods is greater than remaining periods.
-            # So without wasting time just getting in the loop below and choosing a new course.
-            while (number_of_periods > remaining_periods):
-                # If the new course is not a one with fixed periods, 
-                #     we have the flexible option of choosing the number of periods of the new course
-                #     equal to the remaining periods iff the remaining number of periods is within
-                #     the range of the max number of periods that a normal course can have.
-                course = self.courses[random.randint(0, len(self.courses)-1)]
-                if course in courses.courses_fixed_periods:
-                    # If the number of periods of the newly chosen course is greater 
-                    #     than remaining periods, then the code in the loop will rerun.
-                    number_of_periods = courses.courses_fixed_periods_with_periods[course]
-                    if remaining_periods >= number_of_periods:
-                        remaining_periods -= number_of_periods
-                        self.courses.pop(self.courses.index(course))
-                        return (self.__add_number_of_periods_after_colon(self.__check_if_section_specific_course(course, section), number_of_periods), remaining_periods)
-                else:
-                    if remaining_periods > parameters.max_periods_per_subject:
-                        number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
-                    else: number_of_periods = remaining_periods
-                    
-                    remaining_periods -= number_of_periods
-                    self.courses.pop(self.courses.index(course))
-                    return (self.__add_number_of_periods_after_colon(course, number_of_periods), remaining_periods)
-        else:
-            if remaining_periods > parameters.max_periods_per_subject:
-                number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
-            else: number_of_periods = remaining_periods
-            
-            remaining_periods -= number_of_periods
-            self.courses.pop(self.courses.index(course))
-            return (self.__add_number_of_periods_after_colon(course, number_of_periods), remaining_periods)
+        while (number_of_periods > remaining_periods):
+            # If the new course is not a one with fixed periods, 
+            #     we have the flexible option of choosing the number of periods of the new course
+            #     equal to the remaining periods iff the remaining number of periods is within
+            #     the range of the max number of periods that a normal course can have.
+            course = self.courses[random.randint(0, len(self.courses)-1)]
+            if course in courses.courses_fixed_periods:
+                # If the number of periods of the newly chosen course is greater 
+                #     than remaining periods, then the code in the loop will rerun.
+                number_of_periods = courses.courses_fixed_periods_with_periods[course]
+                if remaining_periods >= number_of_periods:
+                    return (self.__add_number_of_periods_after_colon(self.__check_if_section_specific_course(self.courses.pop(self.courses.index(course)), section), number_of_periods), remaining_periods - number_of_periods)
+            else:
+                if remaining_periods > parameters.max_periods_per_subject:
+                    number_of_periods = random.randint(parameters.min_periods_per_subject, parameters.max_periods_per_subject)
+                else: number_of_periods = remaining_periods
+                
+                return (self.__add_number_of_periods_after_colon(self.courses.pop(self.courses.index(course)), number_of_periods), remaining_periods - number_of_periods)
 
     def __generate_phone(self) -> str:
         # Adding the first number (1-9) so that 0 is NOT the first number,
