@@ -11,6 +11,7 @@ CONFIG += c++11
 INCLUDEPATH += include/
 
 SOURCES += \
+    src/class.cpp \
     src/csv_parser.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     include/sections.h \
     include/student.h \
     include/teacher.h \
+    include/time-table-generator/class.h \
     include/time-table-generator/courses.h \
     include/time-table-generator/csv_parser.h \
     include/time-table-generator/days.h \

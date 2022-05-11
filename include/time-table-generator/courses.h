@@ -7,178 +7,161 @@
 
 enum Courses
 {
-    // Total 110
-    // Math
-    Mathematics,
-    Additional_Mathematics,
-    Subsidary_Mathematics,
-    Mathematical_Statistics,
-    Elementary_Statistics,
-    Numerical_Analysis,
-    Linear_Algebra,
+    // total 110
+    // math
+    mathematics,
+    additional_mathematics,
+    subsidary_mathematics,
+    mathematical_statistics,
+    elementary_statistics,
+    numerical_analysis,
+    linear_algebra,
 
-    // Computer
-    Computer_Applications,
-    Computer_Programming_In_CPP,
-    Advanced_Electronics,
-    Basic_Electronics,
-    Subjects_In_Technology,
+    // computer
+    computer_applications,
+    computer_programming_in_cpp,
+    advanced_electronics,
+    basic_electronics,
+    subjects_in_technology,
 
-    // Physics
-    Physics_K3,
-    Physics_K1,
-    Physics_K2,
-    Additional_Phyisics,
+    // physics
+    physics_k3,
+    physics_k1,
+    physics_k2,
+    additional_phyisics,
 
-    // Chemistry
-    Chemistry_K1,
-    Chemistry_K2,
-    Chemistry_K3,
-    Additional_Chemistry,
+    // chemistry
+    chemistry_k1,
+    chemistry_k2,
+    chemistry_k3,
+    additional_chemistry,
 
-    // Solar Science
-    Solar_Science,
-    Environmental_Sustainability,
+    // solar science
+    solar_science,
+    environmental_sustainability,
 
-    // Biology
-    Biology,
+    // biology
+    biology,
 
-    // History
-    History,
-    History_Of_Ancient_And_Early_Medieval_India,
-    History_Of_Art,
+    // history
+    history,
+    history_of_ancient_and_early_medieval_india,
+    history_of_art,
 
-    // Languages
-    English,
-    French,
-    German,
-    Spanish,
-    Manderin,
-    Japanese,
-    Italian,
-    Russian,
-    Tibetan,
+    // languages
+    english,
+    french,
+    german,
+    spanish,
+    manderin,
+    japanese,
+    italian,
+    russian,
+    tibetan,
 
-    Tamil,
-    Telegu,
-    Bengali,
-    Oriya,
-    Hindi,
-    Gujrati,
-    Sanskrit,
-    Kannada,
-    Malayalayam,
-    Marathi,
+    tamil,
+    telegu,
+    bengali,
+    oriya,
+    hindi,
+    gujrati,
+    sanskrit,
+    kannada,
+    malayalayam,
+    marathi,
 
-    // Sri Aurobindo
-    The_Ideal_Of_Human_Unity,
-    The_Human_Cycle,
-    The_Synthesis_Of_Yoga,
-    The_Foundations_Of_Indian_Culture,
-    Savitri,
-    The_Life_Divine,
-    Essays_On_The_Gita,
-    The_Future_Poetry,
-    Sri_Aurobindos_Poetry,
-    War_And_Self_Determination,
-    The_Secret_Of_The_Veda,
-    Letters_On_Yoga,
-    Studies_Of_The_Mothers_Works_French,
-    Integral_Psychology_Of_Sri_Aurobindo,
-    The_Gita_In_The_Light_And_Vision_Of_Sri_Aurobindo,
-    Social_Philosophy_Of_Sri_Aurobindo,
-    Sri_Aurobindo_And_The_Mother_On_Education,
-    Sri_Aurobindo_And_The_Mother_On_Physical_Education,
-    The_Yoga_Of_Self_Perfection,
-    Sri_Aurobindo_And_World_Philosophy,
+    // sri aurobindo
+    the_ideal_of_human_unity,
+    the_human_cycle,
+    the_synthesis_of_yoga,
+    the_foundations_of_indian_culture,
+    savitri,
+    the_life_divine,
+    essays_on_the_gita,
+    the_future_poetry,
+    sri_aurobindos_poetry,
+    war_and_self_determination,
+    the_secret_of_the_veda,
+    letters_on_yoga,
+    studies_of_the_mothers_works_french,
+    integral_psychology_of_sri_aurobindo,
+    the_gita_in_the_light_and_vision_of_sri_aurobindo,
+    social_philosophy_of_sri_aurobindo,
+    sri_aurobindo_and_the_mother_on_education,
+    sri_aurobindo_and_the_mother_on_physical_education,
+    the_yoga_of_self_perfection,
+    sri_aurobindo_and_world_philosophy,
 
-    // Philosophy
-    Introduction_To_Philosophy,
-    Psychology,
-    Consciousness_Studies,
-    Indian_Philosophy,
-    Indian_And_Western_Philosophy,
+    // philosophy
+    introduction_to_philosophy,
+    psychology,
+    consciousness_studies,
+    indian_philosophy,
+    indian_and_western_philosophy,
 
-    // Global
-    Governance_And_Politics,
-    Global_And_International_Studies,
-    Sociology,
-    Human_Geography,
-    Political_Science,
-    Principles_Of_Economics,
+    // global
+    governance_and_politics,
+    global_and_international_studies,
+    sociology,
+    human_geography,
+    political_science,
+    principles_of_economics,
 
-    // Misc
-    Critical_Thinking,
-    Management,
-    Architechture_And_Design,
-    Design_And_Interiors,
-    Indian_Aesthetics,
-    Introduction_To_Social_Anthropology,
-    Physical_Education,
-    Photography,
-    Cinematography,
+    // misc
+    critical_thinking,
+    management,
+    architechture_and_design,
+    design_and_interiors,
+    indian_aesthetics,
+    introduction_to_social_anthropology,
+    physical_education,
+    photography,
+    cinematography,
 
-    // Handwork
-    Carpentry,
-    Drawing_And_Painting,
-    Craft,
-    Pottery,
-    Eco_Lake_Project,
+    // handwork
+    carpentry,
+    drawing_and_painting,
+    craft,
+    pottery,
+    eco_lake_project,
 
-    // Music
-    Karnatic_Vocal,
-    Hindustani_Vocal,
-    Violin,
-    Piano,
-    Sitar,
-    Tabla,
-    Flute
+    // music
+    karnatic_vocal,
+    hindustani_vocal,
+    violin,
+    piano,
+    sitar,
+    tabla,
+    flute
 };
 
-std::vector<std::string> Fixed_Period_Courses = {
-    // Math
-    "Mathematics",
-    "Additional_Mathematics",
-    "Subsidary_Mathematics",
-    "Mathematical_Statistics",
-    "Elementary_Statistics",
-    "Numerical_Analysis",
-    "Linear_Algebra",
+std::vector<std::string> fixed_period_courses = {
+    // math
+    "mathematics",
+    "mathematical_statistics",
+    "elementary_statistics",
+    "numerical_analysis",
+    "linear_algebra",
 
-    // Computer
-    "Computer_Applications",
-    "Computer_Literacy",
-    "Computer_Programming_In_CPP",
+    // computer
+    "computer_applications",
+    "computer_literacy",
+    "computer_programming_in_cpp",
 
-    // Physics
-    "Physics_K3",
-    "Physics_K1",
-    "Physics_K2",
-    "Additional_Phyisics",
+    // physics
+    "physics_k3",
+    "physics_k1",
+    "physics_k2",
 
-    // Chemistry
-    "Chemistry_K1",
-    "Chemistry_K2",
-    "Chemistry_K3",
-    "Additional_Chemistry",
+    // chemistry
+    "chemistry_k1",
+    "chemistry_k2",
+    "chemistry_k3",
 
-    // Solar Science
-    "Solar_Science",
-    "Environmental_Sustainability",
+    // solar science
+    "solar_science",
 
-    // Biology
-    "Biology",
-    "Molecular_And_Cellular_Biochemistry",
-    "Genetics",
-    "Basic_Medical_Physiology",
-    "Zoology",
-    "Botany",
-    "Tissue_Culture",
-    "Health_Studies",
-    "Embryology",
-    "Evolution",
-    "Ecology",
-    "Animal_Behaviour",
-    "Marine_Biology",
+    // biology
+    "biology",
 };
 #endif // COURSES_H

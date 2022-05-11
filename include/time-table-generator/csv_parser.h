@@ -13,8 +13,8 @@ public:
     CSVParser();
     ~CSVParser();
 
-    std::vector<Teacher*> parse_teacher_data(std::string teacher_data_path);
-    std::vector<Student*> parse_student_data(std::string student_data_path);
+    std::vector<Teacher*> parseTeacherData(std::string teacher_data_path);
+    std::vector<Student*> parseStudentData(std::string student_data_path);
 
 };
 

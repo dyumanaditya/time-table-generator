@@ -39,7 +39,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    std::string get_teacher_data_path();
-    std::string get_student_data_path();
+    std::string getTeacherDataPath();
+    std::string getStudentDataPath();
 };
 #endif // MAINWINDOW_H

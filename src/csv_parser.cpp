@@ -16,7 +16,7 @@ CSVParser::~CSVParser()
 {
 }
 
-std::vector<Teacher*> CSVParser::parse_teacher_data(std::string teacher_data_path)
+std::vector<Teacher*> CSVParser::parseTeacherData(std::string teacher_data_path)
 {
     std::vector<Teacher*> teachers;
     std::ifstream stream(teacher_data_path);
@@ -39,14 +39,14 @@ std::vector<Teacher*> CSVParser::parse_teacher_data(std::string teacher_data_pat
 
         // Place data inside teacher object
         Teacher* teacher = new Teacher;
-        teacher->set_name(data[0]);
-        teacher->set_email(data[1]);
-        teacher->set_phone(data[2]);
+        teacher->setName(data[0]);
+        teacher->setEmail(data[1]);
+        teacher->setPhone(data[2]);
 
         int num_courses = std::stoi(data[3]);
         for (int i=0; i<num_courses; ++i)
         {
-            teacher->add_course(data[4+i]);
+            teacher->addCourse(data[4+i]);
         }
 
         for (int i=0; i<6; ++i)
@@ -55,7 +55,7 @@ std::vector<Teacher*> CSVParser::parse_teacher_data(std::string teacher_data_pat
             std::stringstream free_periods(data[4+num_courses+i]);
             while (std::getline(free_periods, free_period, ';'))
             {
-                teacher->add_free_period((Days)i, std::stoi(free_period));
+                teacher->addFreePeriod((Days)i, std::stoi(free_period));
             }
 
         }
@@ -64,7 +64,7 @@ std::vector<Teacher*> CSVParser::parse_teacher_data(std::string teacher_data_pat
         {
             if (data[4+num_courses+6+i]=="yes")
             {
-                teacher->add_section((Sections)i);
+                teacher->addSection((Sections)i);
             }
         }
 
@@ -77,7 +77,7 @@ std::vector<Teacher*> CSVParser::parse_teacher_data(std::string teacher_data_pat
     return teachers;
 }
 
-std::vector<Student*> CSVParser::parse_student_data(std::string student_data_path)
+std::vector<Student*> CSVParser::parseStudentData(std::string student_data_path)
 {
     std::vector<Student*> students;
     std::ifstream stream(student_data_path);
@@ -100,17 +100,17 @@ std::vector<Student*> CSVParser::parse_student_data(std::string student_data_pat
 
         // Place data inside teacher object
         Student* student = new Student;
-        student->set_name(data[0]);
+        student->setName(data[0]);
 
         if (data[1]=="K1")
-            student->set_section(Sections::K1);
+            student->setSection(Sections::K1);
         else if (data[1]=="K2")
-            student->set_section(Sections::K2);
+            student->setSection(Sections::K2);
         else if (data[1]=="K3")
-            student->set_section(Sections::K3);
+            student->setSection(Sections::K3);
 
-        student->set_email(data[2]);
-        student->set_phone(data[3]);
+        student->setEmail(data[2]);
+        student->setPhone(data[3]);
 
         int num_courses = std::stoi(data[4]);
         for (int i=0; i<num_courses; ++i)
@@ -119,7 +119,7 @@ std::vector<Student*> CSVParser::parse_student_data(std::string student_data_pat
             std::size_t delim_pos = course_and_periods.find(";");
             std::string course = course_and_periods.substr(0, delim_pos);
             std::string periods = course_and_periods.substr(delim_pos+1);
-            student->add_course(course, std::stoi(periods));
+            student->addCourse(course, std::stoi(periods));
         }
 
         students.push_back(student);

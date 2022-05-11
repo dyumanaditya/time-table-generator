@@ -13,18 +13,19 @@ public:
     Student();
     ~Student();
 
-    void set_name(std::string name);
-    void set_phone(std::string phone);
-    void set_email(std::string email);
-    void set_section(Sections section);
-    void add_course(std::string course_name, std::string teacher_name, int periods);
+    void setName(std::string name);
+    void setPhone(std::string phone);
+    void setEmail(std::string email);
+    void setSection(Sections section);
+    void addCourse(std::string course_name, std::string teacher_name, int periods);
     void print();
 
-    Sections get_section();
-    std::string get_name();
-    std::string get_phone();
-    std::string get_email();
+    Sections getSection();
+    std::string getName();
+    std::string getPhone();
+    std::string getEmail();
 
+    // Vector containing: Course name, Teacher name, Number of periods
     std::vector<std::tuple<std::string, std::string, int> > courses;
 
 private:

@@ -10,37 +10,37 @@ Teacher::~Teacher()
 {
 }
 
-void Teacher::set_name(std::string name)
+void Teacher::setName(std::string name)
 {
     Teacher::name = name;
 }
 
-void Teacher::set_phone(std::string phone)
+void Teacher::setPhone(std::string phone)
 {
     Teacher::phone = phone;
 }
 
-void Teacher::set_email(std::string email)
+void Teacher::setEmail(std::string email)
 {
     Teacher::email = email;
 }
 
-void Teacher::add_free_period(Days day, int period)
+void Teacher::addFreePeriod(Days day, int period)
 {
     free_periods.push_back((day)*7 + period);
 }
 
-void Teacher::add_course(std::string course, bool is_science)
+void Teacher::addCourse(std::string course, bool is_science)
 {
     courses.push_back(std::make_pair(course, is_science));
 }
 
-void Teacher::add_section(Sections section)
+void Teacher::addSection(Sections section)
 {
     sections.push_back(section);
 }
 
-void Teacher::set_num_students(Sections section, int num)
+void Teacher::setNumStudents(Sections section, int num)
 {
     switch (section)
     {
@@ -72,7 +72,7 @@ void Teacher::print()
     std::cout << "Courses Taking:" << std::endl;
     for (auto course : courses)
     {
-        std::cout << course << std::endl;
+        std::cout << course.first << std::endl;
     }
     std::cout << "Free Periods:" << std::endl;
     for (auto free_period : free_periods)
@@ -97,27 +97,27 @@ void Teacher::print()
     }
 }
 
-std::string Teacher::get_name()
+std::string Teacher::getName()
 {
     return name;
 }
 
-std::string Teacher::get_phone()
+std::string Teacher::getPhone()
 {
     return phone;
 }
 
-std::string Teacher::get_email()
+std::string Teacher::getEmail()
 {
     return email;
 }
 
-std::vector<int> Teacher::get_free_periods()
+std::vector<int> Teacher::getFreePeriods()
 {
     return free_periods;
 }
 
-int Teacher::get_num_students(Sections section)
+int Teacher::getNumStudents(Sections section)
 {
     switch (section)
     {

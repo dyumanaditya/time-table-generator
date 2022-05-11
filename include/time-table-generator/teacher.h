@@ -14,27 +14,28 @@ public:
     Teacher();
     ~Teacher();
 
-    void set_name(std::string name);
-    void set_phone(std::string phone);
-    void set_email(std::string email);
-    void add_free_period(Days day, int period);
-    void add_course(std::string course, bool is_science);
-    void add_section(Sections section);
-    void set_num_students(Sections section, int num);
+    void setName(std::string name);
+    void setPhone(std::string phone);
+    void setEmail(std::string email);
+    void addFreePeriod(Days day, int period);
+    void addCourse(std::string course, bool is_science);
+    void addSection(Sections section);
+    void setNumStudents(Sections section, int num);
     void print();
 
-    std::string get_name();
-    std::string get_phone();
-    std::string get_email();
-    std::vector<int> get_free_periods();
-    int get_num_students(Sections section);
+    std::string getName();
+    std::string getPhone();
+    std::string getEmail();
+    std::vector<int> getFreePeriods();
+    int getNumStudents(Sections section);
+
+    std::vector<std::pair<std::string, bool> > courses;
 
 private:
     std::string name;
     std::string phone;
     std::string email;
     std::vector<int> free_periods;
-    std::vector<std::pair<std::string, bool> > courses;
     std::vector<Sections> sections;
     int num_students_k1;
     int num_students_k2;

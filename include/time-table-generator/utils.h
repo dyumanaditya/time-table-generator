@@ -8,5 +8,4 @@ namespace utils
     bool isScience(std::string course);
 }
 
-
 #endif // UTILS_H
