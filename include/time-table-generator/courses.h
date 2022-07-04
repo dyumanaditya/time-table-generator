@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <map>
 
 
 enum Courses
@@ -135,33 +136,32 @@ enum Courses
     flute
 };
 
-std::vector<std::string> fixed_period_courses = {
+inline std::map<std::string, int> fixed_period_courses = {
     // math
-    "mathematics",
-    "mathematical_statistics",
-    "elementary_statistics",
-    "numerical_analysis",
-    "linear_algebra",
+    {"mathematics", 5},
+    {"mathematical_statistics", 2},
+    {"elementary_statistics", 2},
+    {"numerical_analysis", 2},
+    {"linear_algebra", 4},
 
     // computer
-    "computer_applications",
-    "computer_literacy",
-    "computer_programming_in_cpp",
+    {"computer_applications", 2},
+    {"computer_programming_in_cpp", 4},
 
     // physics
-    "physics_k3",
-    "physics_k1",
-    "physics_k2",
+    {"physics_k3", 7},
+    {"physics_k1", 7},
+    {"physics_k2", 7},
 
     // chemistry
-    "chemistry_k1",
-    "chemistry_k2",
-    "chemistry_k3",
+    {"chemistry_k1", 6},
+    {"chemistry_k2", 6},
+    {"chemistry_k3", 6},
 
     // solar science
-    "solar_science",
+    {"solar_science", 2},
 
     // biology
-    "biology",
+    {"biology", 4}
 };
 #endif // COURSES_H

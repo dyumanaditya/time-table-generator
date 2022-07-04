@@ -1,6 +1,7 @@
 #include "time-table-generator/csv_parser.h"
 #include "time-table-generator/days.h"
 #include "time-table-generator/sections.h"
+#include "time-table-generator/utils.h"
 
 #include <vector>
 #include <iostream>
@@ -46,7 +47,7 @@ std::vector<Teacher*> CSVParser::parseTeacherData(std::string teacher_data_path)
         int num_courses = std::stoi(data[3]);
         for (int i=0; i<num_courses; ++i)
         {
-            teacher->addCourse(data[4+i]);
+            teacher->addCourse(data[4+i], utils::isScience(data[4+i]));
         }
 
         for (int i=0; i<6; ++i)
@@ -115,11 +116,16 @@ std::vector<Student*> CSVParser::parseStudentData(std::string student_data_path)
         int num_courses = std::stoi(data[4]);
         for (int i=0; i<num_courses; ++i)
         {
-            std::string course_and_periods = data[5+i];
-            std::size_t delim_pos = course_and_periods.find(";");
-            std::string course = course_and_periods.substr(0, delim_pos);
-            std::string periods = course_and_periods.substr(delim_pos+1);
-            student->addCourse(course, std::stoi(periods));
+            // Process ; delimited data
+            std::string course_teacher_periods = data[5+i];
+            std::vector<std::string> course_teacher_periods_vec;
+            std::string course_teacher_periods_data_field;
+            std::stringstream course_teacher_periods_data_stream(course_teacher_periods);
+            while (std::getline(course_teacher_periods_data_stream, course_teacher_periods_data_field, ';'))
+            {
+                course_teacher_periods_vec.push_back(course_teacher_periods_data_field);
+            }
+            student->addCourse(course_teacher_periods_vec[0], course_teacher_periods_vec[1], std::stoi(course_teacher_periods_vec[2]));
         }
 
         students.push_back(student);

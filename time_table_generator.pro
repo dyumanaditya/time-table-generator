@@ -2,7 +2,8 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++20
+QMAKE_CXXFLAGS += -std=c++2a
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -21,13 +22,6 @@ SOURCES += \
     src/utils.cpp
 
 HEADERS += \
-    include/courses.h \
-    include/csv_parser.h \
-    include/days.h \
-    include/mainwindow.h \
-    include/sections.h \
-    include/student.h \
-    include/teacher.h \
     include/time-table-generator/class.h \
     include/time-table-generator/courses.h \
     include/time-table-generator/csv_parser.h \
@@ -38,7 +32,6 @@ HEADERS += \
     include/time-table-generator/teacher.h \
     include/time-table-generator/time_table_generator.h \
     include/time-table-generator/utils.h \
-    include/time_table_generator.h
 
 FORMS += \
     forms/mainwindow.ui

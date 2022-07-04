@@ -5,7 +5,7 @@
 
 bool utils::isScience(std::string course)
 {
-    if (std::find(fixed_period_courses.begin(), fixed_period_courses.end(), course) != fixed_period_courses.end())
+    if (fixed_period_courses.contains(course))
     {
         return true;
     }

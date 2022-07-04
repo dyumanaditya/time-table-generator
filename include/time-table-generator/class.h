@@ -15,10 +15,12 @@ class Class
 public:
     Class();
     ~Class();
+    void print();
 
     std::string course;
     Teacher* teacher;
     bool science;
+    float metric;
 
     // The maximum number of periods that a student has requested from a section
     std::map<Sections, int> max_num_periods;

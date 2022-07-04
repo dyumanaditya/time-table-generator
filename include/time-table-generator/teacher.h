@@ -1,6 +1,6 @@
 #ifndef TEACHER_H
 #define TEACHER_H
-\
+
 #include <string>
 #include <vector>
 #include <utility>
@@ -29,6 +29,7 @@ public:
     std::vector<int> getFreePeriods();
     int getNumStudents(Sections section);
 
+    // Vector of courses with name and if science of not
     std::vector<std::pair<std::string, bool> > courses;
 
 private:
