@@ -44,16 +44,19 @@ std::vector<Teacher*> CSVParser::parseTeacherData(std::string teacher_data_path)
         teacher->setEmail(data[1]);
         teacher->setPhone(data[2]);
 
-        int num_courses = std::stoi(data[3]);
-        for (int i=0; i<num_courses; ++i)
+        // Get courses that the teacher is taking
+        std::string course;
+        std::stringstream course_stream(data[3]);
+        while(std::getline(course_stream, course, ';'))
         {
-            teacher->addCourse(data[4+i], utils::isScience(data[4+i]));
+//            std::cout << course << std::endl;
+            teacher->addCourse(course, utils::isScience(course));
         }
 
         for (int i=0; i<6; ++i)
         {
             std::string free_period;
-            std::stringstream free_periods(data[4+num_courses+i]);
+            std::stringstream free_periods(data[4+i]);
             while (std::getline(free_periods, free_period, ';'))
             {
                 teacher->addFreePeriod((Days)i, std::stoi(free_period));
@@ -63,7 +66,7 @@ std::vector<Teacher*> CSVParser::parseTeacherData(std::string teacher_data_path)
 
         for (int i=0; i<3; ++i)
         {
-            if (data[4+num_courses+6+i]=="yes")
+            if (data[4+6+i]=="yes")
             {
                 teacher->addSection((Sections)i);
             }

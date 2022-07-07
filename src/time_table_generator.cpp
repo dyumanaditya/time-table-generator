@@ -22,10 +22,6 @@ void TimeTableGenerator::generateTimeTable()
     populateClassMatrix();
     setNumStudentsSection();
     sortClassMatrix();
-    for (auto c : class_matrix[1])
-    {
-        c.print();
-    }
 }
 
 void TimeTableGenerator::populateClassMatrix()
@@ -117,6 +113,7 @@ void TimeTableGenerator::initClasses()
                     if (c.max_num_periods[student->getSection()] < std::get<2>(course))
                     {
                         c.max_num_periods[student->getSection()] = std::get<2>(course);
+                        std::cout << student->getName() << " " << c.course << " " << std::get<2>(course) << std::endl;
                     }
                 }
             }
@@ -140,12 +137,15 @@ void TimeTableGenerator::sortClassMatrix()
         else
         {
             class_periods = c.max_num_periods[Sections::K1] + c.max_num_periods[Sections::K2] + c.max_num_periods[Sections::K3];
+            std::cout << c.max_num_periods[Sections::K3] << std::endl;
         }
 
         float teacher_availability = class_periods / (float)c.teacher->getFreePeriods().size();
         float student_demand = (c.teacher->getNumStudents(Sections::K1) + c.teacher->getNumStudents(Sections::K2) + c.teacher->getNumStudents(Sections::K3)) / 3;
-        std::cout << teacher_availability << std::endl;
-        std::cout << student_demand << std::endl;
+        c.print();
+        std::cout << "class_periods: " << class_periods << std::endl;
+        std::cout << "teacher_availability: " << teacher_availability << std::endl;
+        std::cout << "student_demand: " << student_demand << std::endl << std::endl;
         c.metric = teacher_availability * student_demand;
     }
 

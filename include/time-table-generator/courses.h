@@ -149,14 +149,16 @@ inline std::map<std::string, int> fixed_period_courses = {
     {"computer_programming_in_cpp", 4},
 
     // physics
-    {"physics_k3", 7},
-    {"physics_k1", 7},
-    {"physics_k2", 7},
+//    {"physics_k3", 7},
+//    {"physics_k1", 7},
+//    {"physics_k2", 7},
+    {"physics", 7},
 
     // chemistry
-    {"chemistry_k1", 6},
-    {"chemistry_k2", 6},
-    {"chemistry_k3", 6},
+//    {"chemistry_k1", 6},
+//    {"chemistry_k2", 6},
+//    {"chemistry_k3", 6},
+    {"chemistry", 6},
 
     // solar science
     {"solar_science", 2},
