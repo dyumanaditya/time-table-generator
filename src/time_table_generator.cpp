@@ -31,7 +31,7 @@ void TimeTableGenerator::populateClassMatrix()
     {
         for (int free_period : c.teacher->getFreePeriods())
         {
-            class_matrix[free_period].push_back(c);
+            class_matrix[free_period].push_back(&c);
         }
     }
 }    
@@ -152,6 +152,11 @@ void TimeTableGenerator::sortClassMatrix()
     // Now sort the courses based on metric calculated
     for (auto & [key, val] : class_matrix)
     {
-        std::sort(val.begin(), val.end(), [](Class &c1, Class &c2) {return c1.metric < c2.metric;});
+        std::sort(val.begin(), val.end(), [](Class *c1, Class *c2) {return c1->metric < c2->metric;});
+    }
+
+    for (const auto &c : class_matrix[1])
+    {
+        c->print();
     }
 }

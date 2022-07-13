@@ -29,7 +29,7 @@ private:
     std::vector<Class> classes;
 
     // Map of all potential classes in a particular period
-    std::map<int, std::vector<Class>> class_matrix;
+    std::map<int, std::vector<Class*>> class_matrix;
 
     // Size (42 x # (of teachers in that period))
     std::map<int, std::vector<Teacher*>> teacher_availability;
