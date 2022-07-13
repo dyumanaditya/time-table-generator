@@ -40,27 +40,28 @@ void Teacher::addSection(Sections section)
     sections.push_back(section);
 }
 
-void Teacher::setNumStudents(Sections section, int num)
+void Teacher::setNumStudents(Sections section, std::string course, int num)
 {
-    switch (section)
-    {
-    case Sections::K1:
-    {
-        num_students_k1 = num;
-        break;
-    }
+    num_students[section][course] = num;
+//    switch (section)
+//    {
+//    case Sections::K1:
+//    {
+//        num_students_k1 = num;
+//        break;
+//    }
 
-    case Sections::K2:
-    {
-        num_students_k2 = num;
-        break;
-    }
-    case Sections::K3:
-    {
-        num_students_k3 = num;
-        break;
-    }
-    }
+//    case Sections::K2:
+//    {
+//        num_students_k2 = num;
+//        break;
+//    }
+//    case Sections::K3:
+//    {
+//        num_students_k3 = num;
+//        break;
+//    }
+//    }
 }
 
 void Teacher::print()
@@ -117,25 +118,26 @@ std::vector<int> Teacher::getFreePeriods()
     return free_periods;
 }
 
-int Teacher::getNumStudents(Sections section)
+int Teacher::getNumStudents(Sections section, std::string course)
 {
-    switch (section)
-    {
-    case Sections::K1:
-    {
-        return num_students_k1;
-        break;
-    }
+    return num_students[section][course];
+//    switch (section)
+//    {
+//    case Sections::K1:
+//    {
+//        return num_students_k1;
+//        break;
+//    }
 
-    case Sections::K2:
-    {
-        return num_students_k2;
-        break;
-    }
-    case Sections::K3:
-    {
-        return num_students_k3;
-        break;
-    }
-    }
+//    case Sections::K2:
+//    {
+//        return num_students_k2;
+//        break;
+//    }
+//    case Sections::K3:
+//    {
+//        return num_students_k3;
+//        break;
+//    }
+//    }
 }
