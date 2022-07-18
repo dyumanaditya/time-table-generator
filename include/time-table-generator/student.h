@@ -28,6 +28,12 @@ public:
     // Vector containing: Course name, Teacher name, Number of periods
     std::vector<std::tuple<std::string, std::string, int> > courses;
 
+    // Vector containing the students free periods which is initially all 42
+    std::vector<int> free_periods;
+
+    // Function to check if student is free in the given period
+    bool isFree(int period);
+
 private:
     std::string name;
     std::string phone;

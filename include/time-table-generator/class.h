@@ -22,6 +22,11 @@ public:
     bool science;
     float metric;
 
+    // Sections that have been fixed
+    bool k1_fixed;
+    bool k2_fixed;
+    bool k3_fixed;
+
     // The maximum number of periods that a student has requested from a section
     std::map<Sections, int> max_num_periods;
 

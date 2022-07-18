@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <algorithm>
+#include <random>
+
 
 TimeTableGenerator::TimeTableGenerator(std::string teacher_data_path, std::string student_data_path)
 {
@@ -18,10 +20,23 @@ TimeTableGenerator::~TimeTableGenerator()
 
 void TimeTableGenerator::generateTimeTable()
 {
+    // Initial setup for metrics and classes etc
     setNumStudentsSection();
     initClasses();
     populateClassMatrix();
     sortClassMatrix();
+    removeRedundantClasses();
+
+    for (auto &c : class_matrix[1])
+    {
+        c->print();
+    }
+
+    // Start the algo
+    fillPeriods();
+    int random_period = generateRandomPeriod();
+
+
 }
 
 void TimeTableGenerator::populateClassMatrix()
@@ -154,9 +169,101 @@ void TimeTableGenerator::sortClassMatrix()
     {
         std::sort(val.begin(), val.end(), [](Class *c1, Class *c2) {return c1->metric < c2->metric;});
     }
+}
 
-    for (const auto &c : class_matrix[1])
+
+void TimeTableGenerator::fillPeriods()
+{
+    periods.clear();
+    for (int i=1; i<=42; ++i)
+    {
+        periods.push_back(i);
+    }
+}
+
+
+int TimeTableGenerator::generateRandomInt(int lower, int upper)
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution dist(lower, upper);
+    return dist(gen);
+}
+
+
+int TimeTableGenerator::generateRandomPeriod()
+{
+    if (periods.size()==0)
+    {
+        fillPeriods();
+    }
+    int lower = 0;
+    int upper = periods.size()-1;
+    int rand_int = generateRandomInt(lower, upper);
+    int period = periods[rand_int];
+    periods.erase(periods.begin()+rand_int);
+    return period;
+}
+
+
+void TimeTableGenerator::removeRedundantClasses()
+{
+//    for (auto & [period, class_vector] : class_matrix)
+//    {
+//        for (auto &c : class_vector)
+//        {
+//            if (c->metric == 0.0)
+//            {
+//                class_vector.erase(std::remove(class_vector.begin(), class_vector.end(), c), class_vector.end());
+
+//            }
+//        }
+//    }
+
+    for (auto &c : class_matrix[1])
     {
         c->print();
+    }
+
+    for (auto & [period, class_vector] : class_matrix)
+    {
+        for (int i=0; i<class_vector.size(); ++i)
+        {
+            if (class_vector[i]->metric == 0.0)
+            {
+                class_vector.erase(class_vector.begin()+i);
+            }
+        }
+    }
+}
+
+
+bool TimeTableGenerator::fixClass(int period, int class_position)
+{
+    // Variables describing which classes failed
+    bool k1_failed = true;
+    bool k2_failed = true;
+    bool k3_failed = true;
+
+    // Check if there are available classes in this period
+    if (class_matrix.contains(period))
+    {
+        // Make sure there are classes in the period
+        if (class_matrix[period].size()>class_position)
+        {
+            // Make sure this class has not already been fixed
+            if (!class_matrix[period][class_position]->k1_fixed)
+            {
+                // Make sure each K1 student is free in this period
+                for (Student* student : class_matrix[period][class_position]->students[Sections::K1])
+                {
+                    if (!student->isFree(period))
+                    {
+                        break;
+                    }
+
+                }
+            }
+        }
     }
 }

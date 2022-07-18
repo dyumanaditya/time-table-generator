@@ -1,9 +1,15 @@
 #include "time-table-generator/student.h"
 
 #include <iostream>
+#include <algorithm>
 
 Student::Student()
 {
+    // Add all 42 periods for student being free
+    for (int i=1; i<=42; ++i)
+    {
+        free_periods.push_back(i);
+    }
 }
 
 Student::~Student()
@@ -80,5 +86,17 @@ std::string Student::getEmail()
 std::string Student::getPhone()
 {
     return phone;
+}
+
+bool Student::isFree(int period)
+{
+    if (std::find(free_periods.begin(), free_periods.end(), period) != free_periods.end())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 

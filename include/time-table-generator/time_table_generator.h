@@ -12,6 +12,7 @@
 #include <vector>
 #include <map>
 
+
 class TimeTableGenerator
 {
 public:
@@ -34,6 +35,12 @@ private:
     // Size (42 x # (of teachers in that period))
     std::map<int, std::vector<Teacher*>> teacher_availability;
 
+    // Time table contains the classes that have been fixed: period number -> vector of classes
+    std::map<int, std::vector<Class*>> time_table;
+
+    // Vector containing the periods we have not yet selected for algo
+    std::vector<int> periods;
+
     // Function to evaluate and populate class matrix based on teacher free periods:
     void populateClassMatrix();
 
@@ -45,6 +52,21 @@ private:
 
     // Function to set the num_students_section varaible
     void setNumStudentsSection();
+
+    // Function to fill up the periods from 1-42 again
+    void fillPeriods();
+
+    // Function to generate random number in some range
+    int generateRandomInt(int lower, int upper);
+
+    // Function to get the random period
+    int generateRandomPeriod();
+
+    // Function to remove the classes which have metric 0 because that means nobody is taking the class
+    void removeRedundantClasses();
+
+    // Function to fix a certain class. Returns true if successful, otherwise false (all students should be free)
+    bool fixClass(int period, int class_position);
 };
 
 #endif // TIMETABLEGENERATOR_H
