@@ -34,6 +34,9 @@ public:
     // Function to check if student is free in the given period
     bool isFree(int period);
 
+    // Function to fix a class for the student: removes a free period
+    void removeFreePeriod(int period);
+
 private:
     std::string name;
     std::string phone;

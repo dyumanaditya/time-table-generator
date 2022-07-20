@@ -27,16 +27,18 @@ void TimeTableGenerator::generateTimeTable()
     sortClassMatrix();
     removeRedundantClasses();
 
-    for (auto &c : class_matrix[1])
-    {
-        c->print();
-    }
-
     // Start the algo
     fillPeriods();
-    int random_period = generateRandomPeriod();
 
+    while (!programCompleted())
+    {
+        int random_period = generateRandomPeriod();
+        bool result = fixClass(random_period, 0);
+        sortClassMatrix();
+    }
 
+    std::cout << "complete" << std::endl;
+    printTimetable();
 }
 
 void TimeTableGenerator::populateClassMatrix()
@@ -167,7 +169,7 @@ void TimeTableGenerator::sortClassMatrix()
     // Now sort the courses based on metric calculated
     for (auto & [key, val] : class_matrix)
     {
-        std::sort(val.begin(), val.end(), [](Class *c1, Class *c2) {return c1->metric < c2->metric;});
+        std::sort(val.begin(), val.end(), [](Class *c1, Class *c2) {return c1->metric > c2->metric;});
     }
 }
 
@@ -208,30 +210,14 @@ int TimeTableGenerator::generateRandomPeriod()
 
 void TimeTableGenerator::removeRedundantClasses()
 {
-//    for (auto & [period, class_vector] : class_matrix)
-//    {
-//        for (auto &c : class_vector)
-//        {
-//            if (c->metric == 0.0)
-//            {
-//                class_vector.erase(std::remove(class_vector.begin(), class_vector.end(), c), class_vector.end());
-
-//            }
-//        }
-//    }
-
-    for (auto &c : class_matrix[1])
-    {
-        c->print();
-    }
-
     for (auto & [period, class_vector] : class_matrix)
     {
         for (int i=0; i<class_vector.size(); ++i)
         {
             if (class_vector[i]->metric == 0.0)
             {
-                class_vector.erase(class_vector.begin()+i);
+                class_vector.resize(i);
+                break;
             }
         }
     }
@@ -241,16 +227,18 @@ void TimeTableGenerator::removeRedundantClasses()
 bool TimeTableGenerator::fixClass(int period, int class_position)
 {
     // Variables describing which classes failed
-    bool k1_failed = true;
-    bool k2_failed = true;
-    bool k3_failed = true;
+    bool k1_success = true;
+    bool k2_success = true;
+    bool k3_success = true;
 
     // Check if there are available classes in this period
     if (class_matrix.contains(period))
     {
+//        std::cout << getPeriodFromNumber(period) << std::endl;
         // Make sure there are classes in the period
         if (class_matrix[period].size()>class_position)
         {
+            // FOR K1
             // Make sure this class has not already been fixed
             if (!class_matrix[period][class_position]->k1_fixed)
             {
@@ -259,11 +247,187 @@ bool TimeTableGenerator::fixClass(int period, int class_position)
                 {
                     if (!student->isFree(period))
                     {
+                        k1_success = false;
                         break;
                     }
 
                 }
             }
+            // Otherwise the class has already been fixed for k1
+            else
+            {
+                k1_success = false;
+            }
+
+            // FOR K2
+            // Make sure this class has not already been fixed
+            if (!class_matrix[period][class_position]->k2_fixed)
+            {
+                // Make sure each K2 student is free in this period
+                for (Student* student : class_matrix[period][class_position]->students[Sections::K2])
+                {
+                    if (!student->isFree(period))
+                    {
+                        k2_success = false;
+                        break;
+                    }
+
+                }
+            }
+            // Otherwise the class has already been fixed for k1
+            else
+            {
+                k2_success = false;
+            }
+
+            // FOR K3
+            // Make sure this class has not already been fixed
+            if (!class_matrix[period][class_position]->k3_fixed)
+            {
+                // Make sure each K3 student is free in this period
+                for (Student* student : class_matrix[period][class_position]->students[Sections::K3])
+                {
+                    if (!student->isFree(period))
+                    {
+                        k3_success = false;
+                        break;
+                    }
+
+                }
+            }
+            // Otherwise the class has already been fixed for k1
+            else
+            {
+                k3_success = false;
+            }
+        }
+        // There are no more classes that can be fixed
+        else
+        {
+            return false;
+        }
+    }
+    // Return successfully if the period is not there in the class_matrix
+    else
+    {
+        return true;
+    }
+
+    // If all have failed, then call the fixClass function again with class_position + 1
+    if (!k1_success && !k2_success && !k3_success)
+    {
+        fixClass(period, class_position+1);
+    }
+    // Fix class for k1
+    else if (k1_success)
+    {
+        std::cout << "Fixing for k1" << std::endl;
+        time_table[period].push_back(class_matrix[period][class_position]);
+        class_matrix[period].erase(class_matrix[period].begin()+class_position);
+        // Remove the free period from student and teacher
+        for (Student* student : class_matrix[period][class_position]->students[Sections::K1])
+        {
+            student->removeFreePeriod(period);
+        }
+        class_matrix[period][class_position]->teacher->removeFreePeriod(period);
+    }
+    // Fix class for k2
+    else if (k2_success)
+    {
+        std::cout << "Fixing for k2" << std::endl;
+        time_table[period].push_back(class_matrix[period][class_position]);
+        class_matrix[period].erase(class_matrix[period].begin()+class_position);
+        // Remove the free period from student and teacher
+        for (Student* student : class_matrix[period][class_position]->students[Sections::K2])
+        {
+            student->removeFreePeriod(period);
+        }
+        class_matrix[period][class_position]->teacher->removeFreePeriod(period);
+    }
+    // Fix class for k3
+    else if (k3_success)
+    {
+        std::cout << "Fixing for k3" << std::endl;
+        time_table[period].push_back(class_matrix[period][class_position]);
+        class_matrix[period].erase(class_matrix[period].begin()+class_position);
+        // Remove the free period from student and teacher
+        for (Student* student : class_matrix[period][class_position]->students[Sections::K3])
+        {
+            student->removeFreePeriod(period);
+        }
+        class_matrix[period][class_position]->teacher->removeFreePeriod(period);
+    }
+}
+
+
+bool TimeTableGenerator::programCompleted()
+{
+    bool result = true;
+    for (int i=1; i<=42; ++i)
+    {
+        result = result && class_matrix[i].empty();
+    }
+    return result;
+}
+
+void TimeTableGenerator::printTimetable()
+{
+    for (int i=1; i<=42; ++i)
+    {
+//        std::cout << class_matrix[i].size() << std::endl;
+        for (int j=0; j<class_matrix[i].size(); ++j)
+        {
+            std::cout << getPeriodFromNumber(i) << std::endl;
+            std::cout << class_matrix[i][j]->course << " " << class_matrix[i][j]->teacher->getName() << " ";
+            for (auto &student : class_matrix[i][j]->students[Sections::K3])
+            {
+                std::cout << student->getName();
+            }
+            std::cout << std::endl;
         }
     }
 }
+
+std::string TimeTableGenerator::getPeriodFromNumber(int period)
+{
+    std::string result;
+    int day = (period-1)/7;
+    switch (day)
+    {
+    case 0:
+    {
+        result = "Monday: ";
+        break;
+    }
+    case 1:
+    {
+        result = "Tuesday: ";
+        break;
+    }
+    case 2:
+    {
+        result = "Wednesday: ";
+        break;
+    }
+    case 3:
+    {
+        result = "Thursday: ";
+        break;
+    }
+    case 4:
+    {
+        result = "Friday: ";
+        break;
+    }
+    case 5:
+    {
+        result = "Saturday: ";
+        break;
+    }
+    }
+
+    result += std::to_string(period - 7*day);
+    return result;
+}
+
+

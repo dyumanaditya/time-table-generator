@@ -43,25 +43,6 @@ void Teacher::addSection(Sections section)
 void Teacher::setNumStudents(Sections section, std::string course, int num)
 {
     num_students[section][course] = num;
-//    switch (section)
-//    {
-//    case Sections::K1:
-//    {
-//        num_students_k1 = num;
-//        break;
-//    }
-
-//    case Sections::K2:
-//    {
-//        num_students_k2 = num;
-//        break;
-//    }
-//    case Sections::K3:
-//    {
-//        num_students_k3 = num;
-//        break;
-//    }
-//    }
 }
 
 void Teacher::print()
@@ -121,23 +102,9 @@ std::vector<int> Teacher::getFreePeriods()
 int Teacher::getNumStudents(Sections section, std::string course)
 {
     return num_students[section][course];
-//    switch (section)
-//    {
-//    case Sections::K1:
-//    {
-//        return num_students_k1;
-//        break;
-//    }
+}
 
-//    case Sections::K2:
-//    {
-//        return num_students_k2;
-//        break;
-//    }
-//    case Sections::K3:
-//    {
-//        return num_students_k3;
-//        break;
-//    }
-//    }
+void Teacher::removeFreePeriod(int period)
+{
+    free_periods.erase(std::remove(free_periods.begin(), free_periods.end(), period), free_periods.end());
 }

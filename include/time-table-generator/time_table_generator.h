@@ -67,6 +67,15 @@ private:
 
     // Function to fix a certain class. Returns true if successful, otherwise false (all students should be free)
     bool fixClass(int period, int class_position);
+
+    // Function to check if the program has completed and if all periods have been fixed
+    bool programCompleted();
+
+    // Function to get get period given a number from 1-42. Example 1 -> Monday 1st
+    std::string getPeriodFromNumber(int period);
+
+    // Function to print time table
+    void printTimetable();
 };
 
 #endif // TIMETABLEGENERATOR_H

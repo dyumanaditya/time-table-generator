@@ -100,3 +100,8 @@ bool Student::isFree(int period)
     }
 }
 
+void Student::removeFreePeriod(int period)
+{
+    free_periods.erase(std::remove(free_periods.begin(), free_periods.end(), period), free_periods.end());
+}
+

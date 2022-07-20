@@ -33,6 +33,9 @@ public:
     // Vector of courses with name and if science of not
     std::vector<std::pair<std::string, bool> > courses;
 
+    // Function to remove a free period because a class has been fixed
+    void removeFreePeriod(int period);
+
 private:
     std::string name;
     std::string phone;
