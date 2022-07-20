@@ -4,6 +4,7 @@ import string
 
 # My imports
 import students
+import teachers
 import courses
 import parameters
 
@@ -16,6 +17,8 @@ class RandomGenerator:
         if section == "K1": self.students = students.k1_students
         elif section == "K2": self.students = students.k2_students
         else: self.students = students.k3_students
+        
+        self.teachers = teachers.teachers
 
         self.max_courses_of_student = 0
         all_students_data = []
@@ -109,7 +112,10 @@ class RandomGenerator:
         else: return _course
 
     def __add_number_of_periods_after_colon(self, _course: str, _number_of_periods: int) -> str:
-        return _course + ";" + str(_number_of_periods)
+        return _course + ";" + self.__add_teacher_name_after_colon() + ";" + str(_number_of_periods)
+    
+    def __add_teacher_name_after_colon(self) -> str:
+        return self.teachers[random.randint(0, len(self.teachers)-1)]
 
 
 random_generator = RandomGenerator()

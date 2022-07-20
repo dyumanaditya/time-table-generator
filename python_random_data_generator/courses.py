@@ -1,182 +1,182 @@
 import parameters
 
 section_specific_course = [
-    "Mathematics",
-    "Physics",
-    "Chemistry",
-    "Biology"
+    "mathematics",
+    "physics",
+    "chemistry",
+    "biology"
 ]
 
 courses_fixed_periods_with_periods = {
-    "Mathematics": parameters.Math,
-    "Physics": parameters.Physics,
-    "Chemistry": parameters.Chemistry,
-    "Biology": parameters.Biology,
+    "mathematics": parameters.Math,
+    "physics": parameters.Physics,
+    "chemistry": parameters.Chemistry,
+    "biology": parameters.Biology,
 
-    "Mathematical_Statistics": parameters.Mathematical_Statistics,
-    "Elementary_Statistics": parameters.Elementary_Statistics,
-    "Numerical_Analysis": parameters.Numerical_Analysis,
-    "Linear_Algebra": parameters.Linear_Algebra,
+    "mathematical_statistics": parameters.Mathematical_Statistics,
+    "elementary_statistics": parameters.Elementary_Statistics,
+    "numerical_analysis": parameters.Numerical_Analysis,
+    "linear_algebra": parameters.Linear_Algebra,
 
-    "Computer_Applications": parameters.Computer_applications,
-    "Computer_Programming_In_CPP": parameters.Computer_programming,
+    "computer_applications": parameters.Computer_applications,
+    "computer_programming_in_cpp": parameters.Computer_programming,
 
-    "Solar_Science": parameters.Solar_Science
+    "solar_science": parameters.Solar_Science
 }
 
 courses_fixed_periods = [
-    "Mathematics",
-    "Physics",
-    "Chemistry",
-    "Biology",
+    "mathematics",
+    "physics",
+    "chemistry",
+    "biology",
 
-    "Mathematical_Statistics",
-    "Elementary_Statistics",
-    "Numerical_Analysis",
-    "Linear_Algebra",
+    "mathematical_statistics",
+    "elementary_statistics",
+    "numerical_analysis",
+    "linear_algebra",
 
-    "Computer_Applications",
-    "Computer_Programming_In_CPP",
+    "computer_applications",
+    "computer_programming_in_cpp",
 
-    "Solar_Science",
+    "solar_science",
 ]
 
 courses = [
     # Math
-    "Mathematics", #5
-    "Additional_Mathematics",
-    "Subsidary_Mathematics",
-    "Mathematical_Statistics", #2
-    "Elementary_Statistics", #2
-    "Numerical_Analysis", #2
-    "Linear_Algebra", #3
+    "mathematics", #5
+    "additional_mathematics",
+    "subsidary_mathematics",
+    "mathematical_statistics", #2
+    "elementary_statistics", #2
+    "numerical_analysis", #2
+    "linear_algebra", #3
 
     # Computer
-    "Computer_Applications", #2
-    "Computer_Programming_In_CPP", #4
-    "Advanced_Electronics", #3? will confirm
-    "Basic_Electronics",
-    "Subjects_In_Technology",
+    "computer_applications", #2
+    "computer_programming_in_cpp", #4
+    "advanced_electronics", #3? will confirm
+    "basic_electronics",
+    "subjects_in_technology",
 
     # Physics
-    "Physics", #7
-    "Additional_Phyisics",
+    "physics", #7
+    "additional_phyisics",
 
     # Chemistry
-    "Chemistry", #6
-    "Additional_Chemistry",
+    "chemistry", #6
+    "additional_chemistry",
 
     # Solar Science
-    "Solar_Science", #2
-    "Environmental_Sustainability",
+    "solar_science", #2
+    "environmental_sustainability",
 
     # Biology
-    "Biology", #4
-    # "Molecular_And_Cellular_Biochemistry",
-    # "Genetics",
-    # "Basic_Medical_Physiology",
-    # "Zoology",
-    # "Botany",
-    # "Tissue_Culture",
-    # "Health_Studies",
-    # "Embryology",
-    # "Evolution",
-    # "Ecology",
-    # "Animal_Behaviour",
-    # "Marine_Biology",
+    "biology", #4
+    # "molecular_and_cellular_biochemistry",
+    # "genetics",
+    # "basic_medical_physiology",
+    # "zoology",
+    # "botany",
+    # "tissue_culture",
+    # "health_studies",
+    # "embryology",
+    # "evolution",
+    # "ecology",
+    # "animal_behaviour",
+    # "marine_biology",
 
 
     # History
-    "History",
-    "History_Of_Ancient_And_Early_Medieval_India",
-    "History_Of_Art",
+    "history",
+    "history_of_ancient_and_early_medieval_india",
+    "history_of_art",
 
     # Languages
-    "English",
-    "French",
-    "German",
-    "Spanish",
-    "Manderin",
-    "Japanese",
-    "Italian",
-    "Russian",
-    "Tibetan",
+    "english",
+    "french",
+    "german",
+    "spanish",
+    "manderin",
+    "japanese",
+    "italian",
+    "russian",
+    "tibetan",
 
-    "Tamil",
-    "Telegu",
-    "Bengali",
-    "Oriya",
-    "Hindi",
-    "Gujrati",
-    "Sanskrit",
-    "Kannada",
-    "Malayalayam",
-    "Marathi",
+    "tamil",
+    "telegu",
+    "bengali",
+    "oriya",
+    "hindi",
+    "gujrati",
+    "sanskrit",
+    "kannada",
+    "malayalayam",
+    "marathi",
 
 
     # Sri Aurobindo
-    "The_Ideal_Of_Human_Unity",
-    "The_Human_Cycle",
-    "The_Synthesis_Of_Yoga",
-    "The_Foundations_Of_Indian_Culture",
-    "Savitri",
-    "The_Life_Divine",
-    "Essays_On_The_Gita",
-    "The_Future_Poetry",
-    "Sri_Aurobindos_Poetry",
-    "War_And_Self_Determination",
-    "The_Secret_Of_The_Veda",
-    "Letters_On_Yoga",
-    "Studies_Of_The_Mothers_Works_French",
-    "Integral_Psychology_Of_Sri_Aurobindo",
-    "The_Gita_In_The_Light_And_Vision_Of_Sri_Aurobindo",
-    "Social_Philosophy_Of_Sri_Aurobindo",
-    "Sri_Aurobindo_And_The_Mother_On_Education",
-    "Sri_Aurobindo_And_The_Mother_On_Physical_Education",
-    "The_Yoga_Of_Self_Perfection",
-    "Sri_Aurobindo_And_World_Philosophy",
+    "the_ideal_of_human_unity",
+    "the_human_cycle",
+    "the_synthesis_of_yoga",
+    "the_foundations_of_indian_culture",
+    "savitri",
+    "the_life_divine",
+    "essays_on_the_gita",
+    "the_future_poetry",
+    "sri_aurobindos_poetry",
+    "war_and_self_determination",
+    "the_secret_of_the_veda",
+    "letters_on_yoga",
+    "studies_of_the_mothers_works_french",
+    "integral_psychology_of_sri_aurobindo",
+    "the_gita_in_the_light_and_vision_of_sri_aurobindo",
+    "social_philosophy_of_sri_aurobindo",
+    "sri_aurobindo_and_the_mother_on_education",
+    "sri_aurobindo_and_the_mother_on_physical_education",
+    "the_yoga_of_self_perfection",
+    "sri_aurobindo_and_world_philosophy",
 
 
     # Philosophy
-    "Introduction_To_Philosophy",
-    "Psychology",
-    "Consciousness_Studies",
-    "Indian_Philosophy",
-    "Indian_And_Western_Philosophy",
+    "introduction_to_philosophy",
+    "psychology",
+    "consciousness_studies",
+    "indian_philosophy",
+    "indian_and_western_philosophy",
 
     # Global
-    "Governance_And_Politics",
-    "Global_And_International_Studies",
-    "Sociology",
-    "Human_Geography",
-    "Political_Science",
-    "Principles_Of_Economics",
+    "governance_and_politics",
+    "global_and_international_studies",
+    "sociology",
+    "human_geography",
+    "political_science",
+    "principles_of_economics",
 
     # Misc
-    "Critical_Thinking",
-    "Management",
-    "Architechture_And_Design",
-    "Design_And_Interiors",
-    "Indian_Aesthetics",
-    "Introduction_To_Social_Anthropology",
-    "Physical_Education",
-    "Photography",
-    "Cinematography",
+    "critical_thinking",
+    "management",
+    "architechture_and_design",
+    "design_and_interiors",
+    "indian_aesthetics",
+    "introduction_to_social_anthropology",
+    "physical_education",
+    "photography",
+    "cinematography",
 
     # Handwork
-    "Carpentry",
-    "Drawing_And_Painting",
-    "Craft",
-    "Pottery",
-    "Eco_Lake_Project",
+    "carpentry",
+    "drawing_and_painting",
+    "craft",
+    "pottery",
+    "eco_lake_project",
 
     # Music
-    "Karnatic_Vocal",
-    "Hindustani_Vocal",
-    "Violin",
-    "Piano",
-    "Sitar",
-    "Tabla",
-    "Flute"
+    "karnatic_vocal",
+    "hindustani_vocal",
+    "violin",
+    "piano",
+    "sitar",
+    "tabla",
+    "flute"
 ]
 
