@@ -1,3 +1,4 @@
+# For Student Generator
 min_courses = 5
 max_courses = 12
 
@@ -19,3 +20,8 @@ Computer_applications = 2
 Computer_programming = 4
 Solar_Science = 2
 # Advanced_Electronics = 3 # will confirm
+
+# For Teacher Generator
+max_course_offer = 2
+min_num_periods = 1
+max_num_periods = 7

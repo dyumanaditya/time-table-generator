@@ -1,2 +1,7 @@
-Name,Email,Phone,Number of Courses,Course 1,Course 2,Course 3,Course 4,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,K1,K2,K3
-Jagdish Chandra,jag@gmail.com,9999999999,4,Physics,Subsidary Physics,Mathematics,Additional Mathematics,1;2;3,1;2,1,,1;2;3,,yes,yes,yes
+Name,Email,Phone,Courses,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,K1,K2,K3
+Jagdish,jag@gmail.com,9999999999,physics;subsidary_physics;mathematics;additional_mathematics,1;2;3,1;2,1,,1;2;3,,yes,yes,yes
+Shanti,shanti@gmail.com,9999999999,mathematics;mathematical_statistics;elementary_statistics,1;2;5;6;7,1;2;3;4;5;6;7,1;2,1;2;3;4,1;2;5;6,,yes,yes,yes
+Vinod,vin@gmail.com,9999999999,physics;mathematics,1;3;4,4,4;5;6;7,4,4;5;6,,yes,yes,yes
+Althea,althea@gmail.com,9999999999,english,1;2,1;2;3;4,1;2;3,1;2,,,yes,yes,yes
+Shoma,shoma@gmail.com,9999999999,french,1;2;3;4,3;4,,,,,yes,yes,yes
+Bittu,bittu@gmail.com,9999999999,economics,1;5;6;7,5,5;6,1;2,,5;6,yes,yes,yes
