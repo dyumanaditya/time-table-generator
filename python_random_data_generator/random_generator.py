@@ -9,17 +9,19 @@ import courses
 import parameters
 
 
-class RandomGenerator:        
+class RandomGenerator:
+    def __init__(self):
+        self.teachers = teachers.teachers
+
     def generate_teacher_csv(self):
-        pass
+        all_teachers_data = []
+        
 
     def generate_student_csv(self, section: string) -> None:
         if section == "K1": self.students = students.k1_students
         elif section == "K2": self.students = students.k2_students
         else: self.students = students.k3_students
         
-        self.teachers = teachers.teachers
-
         self.max_courses_of_student = 0
         all_students_data = []
         # 1. Generating data for each student in a list
