@@ -16,6 +16,20 @@ class RandomGenerator:
     def generate_teacher_csv(self):
         all_teachers_data = []
         
+        for teacher in self.teachers:
+            phone = self.__generate_phone()
+            teacher_data = [ teacher, teacher.lower() + "@lmao.com", phone ]
+
+            all_teachers_data.append(teacher_data)
+        
+        with open('teachers_data.csv', 'w', newline='') as f:
+            writer = csv.writer(f, quotechar=',', quoting=csv.QUOTE_MINIMAL)
+            # Generating the column titles
+            column_titles = ["Name","Email","Phone","Courses", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "K1", "K2", "K3"]
+
+            writer.writerow(column_titles)
+            # Writing student data
+            for teacher_data in all_teachers_data: writer.writerow(teacher_data)
 
     def generate_student_csv(self, section: string) -> None:
         if section == "K1": self.students = students.k1_students
@@ -121,6 +135,7 @@ class RandomGenerator:
 
 
 random_generator = RandomGenerator()
-random_generator.generate_student_csv("K1")
-random_generator.generate_student_csv("K2")
-random_generator.generate_student_csv("K3")
+# random_generator.generate_student_csv("K1")
+# random_generator.generate_student_csv("K2")
+# random_generator.generate_student_csv("K3")
+random_generator.generate_teacher_csv()
