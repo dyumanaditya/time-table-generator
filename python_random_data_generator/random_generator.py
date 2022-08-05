@@ -8,6 +8,7 @@ import teachers
 import courses
 import parameters
 
+# PROJECT ABANDONED
 
 class RandomGenerator:
     def __init__(self):
